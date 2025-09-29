@@ -1,21 +1,20 @@
-% Macros used in the writing of the thesis
-\documentclass[a4paper,11pt]{book}
+% Configuració bàsica i macros
+\input{aux/config.tex}
 \input{aux/macros.tex}
-\begin{document}
 
-% First components of the thesis
+% Primers components del document
 \frontmatter
-\input{aux/title.tex}
-\input{aux/contents.tex}
-\input{aux/abstract.tex}
+\input{aux/titol.tex}
+\input{aux/index.tex}
+\input{aux/intro.tex}
 
-% Main content of the thesis
+% Contingut principal del treball
 \mainmatter
-\input{chapters/1.tex}
-\input{chapters/2.tex}
+\input{capitols/1.tex}
+\input{capitols/2.tex}
 
-% Bibliography
+% Bibliografia
 \backmatter
-\input{aux/bibliography.tex}
+\input{aux/biblio.tex}
 
 \end{document}
