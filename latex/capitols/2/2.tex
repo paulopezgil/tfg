@@ -1,1 +1,39 @@
 \section{Ajustament}
+
+\begin{defi}
+Sigui $(S,\rho)$ un espai mètric.
+Sigui $\Pi$ una familia de mesures de probabilitat en $(S, \mathcal{B}(S))$.
+Diem que $\Pi$ és \emph{relativament compacte}
+si tota successió d'elements de $\Pi$ admet una subsuccessió feblement convergent.
+És a dir, si donat $\{P_n\}_{n=1}^{\infty} \subset \Pi$,
+existeix una subsuccessió $\{P_{n_k}\}_{k=1}^{\infty} \subset \{P_n\}_{n=1}^{\infty}$
+i una mesura de probabilitat $P$ en $(S, \mathcal{B}(S))$
+tals que $P_{n_k} \xrightarrow{w} P$.
+\end{defi}
+
+
+
+
+
+\begin{defi}
+Sigui $(S,\rho)$ un espai mètric complet i separable.
+Sigui $\Pi$ una familia de mesures de probabilitat en $(S, \mathcal{B}(S))$.
+Diem que $\Pi$ és \emph{ajustada} si per a tot $\varepsilon > 0$
+existeix un conjunt compacte $K_{\varepsilon} \subset S$
+tal que $P(K_{\varepsilon}) \geq 1 - \varepsilon$ per a tota $P \in \Pi$.
+\end{defi}
+
+
+
+
+
+El següent resultat és necessari per a demostrar el teorema de Donsker
+i en particular l'aproximació del moviment Brownià mitjançant processos estocàstics discrets.
+Si més no, la seva demostració és extensa i s'escapa dels objectius d'aquest treball.
+Per a més detalls, es pot consultar \cite[pàg 60-64]{Billingsley1999}.
+
+\begin{teo} (Teorema de Prohorov)
+Sigui $(S,\rho)$ un espai mètric.
+Una familia $\Pi$ de mesures de probabilitat en $(S, \mathcal{B}(S))$
+és relativament compacte si i només si és ajustada.
+\end{teo}

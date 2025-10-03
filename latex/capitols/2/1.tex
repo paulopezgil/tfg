@@ -1,14 +1,7 @@
 \section{Convergència feble i convergència en llei}
 
-Les següents definicions són essencials per a comprendre la convergència de
-processos estocàstics i la seva aplicació en l'aproximació del moviment Brownià.
-
-
-
-
-
-\begin{defi}
-Sigui $(S,\rho)$ un espai mètric. Considerem en aquest espai mètric la $\sigma$-àlgebra de Borel $\mathcal{B}(S)$.
+\begin{defi} % 2.1.1
+Sigui $(S, \rho)$ un espai mètric amb la $\sigma$-àlgebra de Borel $\mathcal{B}(S)$.
 Sigui $\left\{P_n\right\}_{n=1}^{\infty}$ una successió de mesures de probabilitat en $(S, \mathcal{B}(S))$ i $P$ una mesura en el mateix espai.
 Diem que $\left\{P_n\right\}_{n=1}^{\infty}$ \emph{convergeix feblement} cap a $P$, i escrivim $P_n \xrightarrow{w} P$,
 si per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleix que
@@ -17,7 +10,7 @@ si per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleix que
 \end{equation*}
 \end{defi}
 
-\begin{obs}
+\begin{obs} % 2.1.2
 En particular, el límit feble $P$ és una mesura de probabilitat, ja que si prenem $f \equiv 1$ obtenim que
 \begin{equation*}
 \lim_{n \to \infty} \int_S 1 \, dP_n(s) = \int_S 1 \, dP(s) \implies \lim_{n \to \infty} P_n(S) = P(S) \implies P(S) = 1.
@@ -31,18 +24,19 @@ En particular, el límit feble $P$ és una mesura de probabilitat, ja que si pre
 Ara, considerem una variable aleatòria $X$ en un espai de probabilitat $(\Omega, \mathcal{F}, \mathbb{P})$ amb valors a un espai mesurable $(S, \mathcal{S})$.
 Recordem que \emph{la llei de} $X$ és la mesura de probabilitat $PX^{-1}$ definida per
 \begin{equation*}
-PX^{-1}(B) = \mathbb{P}(X \in B) = \mathbb{P}(X^{-1}(B)) \quad \forall B \in \mathcal{S}.
+PX^{-1}(B) \defeq \mathbb{P}(X^{-1}(B)) = \mathbb{P}(X \in B) \quad \forall B \in \mathcal{S}.
 \end{equation*}
 
 
 
 
 
-\begin{defi}
+\begin{defi} % 2.1.3
+Sigui $(S, \rho)$ un espai mètric amb la $\sigma$-àlgebra de Borel $\mathcal{B}(S)$.
 Sigui $\{\, (\Omega_n, \mathcal{F}_n, \mathbb{P}_n) \,\}_{n=1}^{\infty}$ una successió d'espais de probabilitat
-i considerem en cada un d'ells una variable aleatòria $X_n$ amb valors a un mateix espai mètric $(S, \rho)$.
+i considerem en cada un d'ells una variable aleatòria $X_n$ amb valors a $(S, \mathcal{B}(S))$.
 Sigui $\left( \Omega, \mathcal{F}, \mathbb{P} \right)$ un altre espai de probabilitat
-i $X$ una variable aleatòria en aquest espai amb valors a $(S, \rho)$.
+i $X$ una variable aleatòria en aquest espai amb valors a $(S, \mathcal{B}(S))$.
 Diem que la successió $\{X_n\}_{n=1}^{\infty}$ \emph{convergeix en llei} cap a $X$, i escrivim $X_n \xrightarrow{\mathcal{L}} X$,
 si les lleis de les variables aleatòries $X_n$ convergeixen feblement cap a la llei de $X$, és a dir, si $PX_n^{-1} \xrightarrow{w} PX^{-1}$.
 \end{defi}
@@ -54,7 +48,7 @@ Aquesta definició és equivalent a dir que per a tota funció $f: S \to \mathbb
 \end{equation*}
 ja que mitjançant un canvi de variable tenim que
 \begin{equation*}
-\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega_n)) d\mathbb{P}_n(\omega_n) = \int_S f(s) dPX_n^{-1}(s),
+\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega)) d\mathbb{P}_n(\omega) = \int_S f(s) dPX_n^{-1}(s),
 \end{equation*}
 i de manera anàloga,
 \begin{equation*}
