@@ -1,39 +1,62 @@
-\section{Ajustament}
+\section{Convergència feble i convergència en llei}
 
-\begin{defi}
-Sigui $(S,\rho)$ un espai mètric.
-Sigui $\Pi$ una familia de mesures de probabilitat en $(S, \mathcal{B}(S))$.
-Diem que $\Pi$ és \emph{relativament compacte}
-si tota successió d'elements de $\Pi$ admet una subsuccessió feblement convergent.
-És a dir, si donat $\{P_n\}_{n=1}^{\infty} \subset \Pi$,
-existeix una subsuccessió $\{P_{n_k}\}_{k=1}^{\infty} \subset \{P_n\}_{n=1}^{\infty}$
-i una mesura de probabilitat $P$ en $(S, \mathcal{B}(S))$
-tals que $P_{n_k} \xrightarrow{w} P$.
+\begin{defi} % 2.1.1
+Sigui $\left\{\P_n\right\}_n \subset \mathcal{P}(S)$ una successió de mesures de probabilitat
+i $\P \in \mathcal{P}(S)$ una altra mesura de probabilitat.
+Diem que $\left\{\P_n\right\}_n$ \emph{convergeix feblement} cap a $\P$, i escrivim $\P_n \xrightarrow{w} \P$,
+si per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleix que
+\begin{equation} \label{eq-convergencia-feble}
+\lim_{n \to \infty} \int_S f(s) d\P_n(s) = \int_S f(s) d\P(s).
+\end{equation}
 \end{defi}
 
+% \begin{obs} \label{obs-topologia-feble}
+% Amb la definició \ref{def-topologia-feble} de topologia feble,
+% totes les integrals involucrades en el límit
+% (\ref{eq-convergencia-feble}) són funcions contínues.
+% \end{obs}
+
+\begin{obs} \label{obs-limit-feble}
+En particular, el límit feble $\P$ és una mesura de probabilitat,
+ja que si prenem $f \equiv 1$ obtenim que
+\begin{equation*}
+\lim_{n \to \infty} \int_S 1 \, d\P_n(s) = \int_S 1 \, d\P(s) \implies \lim_{n \to \infty} \P_n(S) = \P(S) \implies \P(S) = 1.
+\end{equation*}
+\end{obs}
+
+
+
+Ara, considerem una variable aleatòria $X$ en un espai de probabilitat $(\Omega, \mathcal{F}, \P)$ amb valors a un espai mesurable $(S, \mathcal{S})$.
+Recordem que \emph{la llei de} $X$ es defineix com la mesura de probabilitat $\P X^{-1}$ definida per
+\begin{equation*}
+\P X^{-1}(B) \defeq \P(X^{-1}(B)) = \P(X \in B) \quad \forall B \in \mathcal{S}.
+\end{equation*}
 
 
 
 
-\begin{defi}
-Sigui $(S,\rho)$ un espai mètric complet i separable.
-Sigui $\Pi$ una familia de mesures de probabilitat en $(S, \mathcal{B}(S))$.
-Diem que $\Pi$ és \emph{ajustada} si per a tot $\varepsilon > 0$
-existeix un conjunt compacte $K_{\varepsilon} \subset S$
-tal que $P(K_{\varepsilon}) \geq 1 - \varepsilon$ per a tota $P \in \Pi$.
+
+\begin{defi} % 2.1.3
+Sigui ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$ una successió d'espais de probabilitat,
+on $\P_n \in \mathcal{P}(S)$ $\forall n \in \mathbb{N}$,
+i considerem en cada un d'ells una variable aleatòria $X_n$ amb valors a $(S, \mathcal{B}(S))$.
+Sigui $\left( \Omega, \mathcal{F}, \\P \right)$ un altre espai de probabilitat, on $\P \in \mathcal{P}(S)$,
+i sigui $X$ una variable aleatòria en aquest espai amb valors a $(S, \mathcal{B}(S))$.
+Diem que la successió $\{X_n\}_n$ \emph{convergeix en llei} cap a $X$, i escrivim $X_n \xrightarrow{\mathcal{L}} X$,
+si les lleis de les variables aleatòries $X_n$ convergeixen feblement cap a la llei de $X$, és a dir, si $\P X_n^{-1} \xrightarrow{w} \P X^{-1}$.
 \end{defi}
 
-
-
-
-
-El següent resultat és necessari per a demostrar el teorema de Donsker
-i en particular l'aproximació del moviment Brownià mitjançant processos estocàstics discrets.
-Si més no, la seva demostració és extensa i s'escapa dels objectius d'aquest treball.
-Per a més detalls, es pot consultar \cite[pàg 60-64]{Billingsley1999}.
-
-\begin{teo} (Teorema de Prohorov)
-Sigui $(S,\rho)$ un espai mètric.
-Una familia $\Pi$ de mesures de probabilitat en $(S, \mathcal{B}(S))$
-és relativament compacte si i només si és ajustada.
-\end{teo}
+\begin{obs}
+Aquesta definició és equivalent a dir que per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleix que
+\begin{equation*}
+\lim_{n \to \infty} \mathbb{E}[f(X_n)] = \mathbb{E}[f(X)],
+\end{equation*}
+ja que mitjançant un canvi de variable tenim que
+\begin{equation*}
+\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega)) d\P_n(\omega) = \int_S f(s) d\P X_n^{-1}(s),
+\end{equation*}
+i de manera anàloga,
+\begin{equation*}
+\mathbb{E}[f(X)] = \int_{\Omega} f(X(\omega)) d\P(\omega) = \int_S f(s) d\P X^{-1}(s).
+\end{equation*}
+\end{obs}
