@@ -20,14 +20,14 @@ La mètrica de Prokhorov en $\mathcal{P}(S)$ és la mètrica definida per
 on $A^{\varepsilon} \defeq \{ x \in S : \rho(x, A) < \varepsilon \} = \bigcup_{p \in A} B_\varepsilon(p)$
 \end{defi}
 
-\begin{lema} \label{lema-metrica-prokhorov}
+\begin{lema} \label{prop-metrica-prokhorov}
 Si $(S, \rho)$ és un espai mètric separable, aleshores la convergència feble
 de mesures de probabilitat en $\mathcal{P}(S)$ és equivalent
 a la convergència de mesures en la mètrica de Prokhorov.
 Per tant, la mètrica de Prokhorov metritza la topologia feble en $\mathcal{P}(S)$.
 \end{lema}
 
-\textit{Prova:} He trobat vàries fonts que m'agradaria comentar.
+\textit{Prova:} \textcolor{blue}{\cite{Billingsley1990}, pàg 72}
 
 \begin{prop} \label{prop-relativament-compacte}
 Una familia $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
@@ -43,8 +43,8 @@ tals que $\P_{n_k} \xrightarrow{w} \P$.
 i sigui $\{\P_n\}_n \subset \Pi$ una successió qualsevol.
 Volem veure que admet una subsuccessió feblement convergent.
 
-Com que $\Pi$ és relativament compacte, la seva adherència $\overline{\Pi}$ és compacta.
-Ja hem vist en el lema \ref{lema-metrica-prokhorov} que $\mathcal{P}(S)$ és un espai mètric
+Com que $\Pi$ és relativament compacte, per definició la seva adherència $\overline{\Pi}$ és compacta.
+Ja hem vist en el lema \ref{prop-metrica-prokhorov} que $\mathcal{P}(S)$ és un espai mètric
 i que la convergència en la mètrica de Prokhorov és equivalent a la convergència feble.
 Per tant, $\overline{\Pi}$ és compacte per successions,
 i.e. tota successió en $\overline{\Pi}$ admet una subsuccessió feblement convergent.
@@ -56,11 +56,11 @@ Recíprocament, suposem que tota successió d'elements
 de $\Pi$ admet una subsuccessió feblement convergent.
 Per demostrar que $\Pi$ és relativament compacte, hem de
 veure que la seva adherència $\overline{\Pi}$ és compacta.
-Com que per el lema \ref{lema-metrica-prokhorov} $\mathcal{P}(S)$ és un espai
+Com que per el lema \ref{prop-metrica-prokhorov}, $\mathcal{P}(S)$ és un espai
 mètric, hem de veure que $\overline{\Pi}$ és compacte per successions.
 És a dir, hem de veure que tota successió en $\overline{\Pi}$
 admet una subsuccessió feblement convergent.
-Novament per el lema \ref{lema-metrica-prokhorov},
+Novament per el lema \ref{prop-metrica-prokhorov},
 això és equivalent a veure que tota successió en $\overline{\Pi}$
 admet una subsuccessió convergent en la mètrica de Prokhorov.
 
