@@ -1,0 +1,50 @@
+Sovint es troba a la literatura una definició alternativa de relativitat compacta
+\footnote{Veure \cite[pàg 57]{Billingsley1999} o \cite[def. 4.6]{KaratzasShreve1991}.}.
+En aquest treball, hem elavorat una demostració de l'equivalència
+entre la definició anterior i la caracterització habitual.
+Per a aquest propòsit, necessitem introduir la mètrica de Prokhorov
+i establir la seva relació amb la convergència feble de mesures de probabilitat.
+
+\begin{defi}
+Diem que un conjunt A és \emph{relativament compacte} si
+la seva adherència $\overline{A}$ és compacta.
+\end{defi}
+
+
+% Equivalència definicions
+\begin{prova} Primer, suposem que $\Pi$ és relativament compacte
+i sigui $\{\P_n\}_n \subset \Pi$ una successió qualsevol.
+Volem veure que admet una subsuccessió feblement convergent.
+
+Com que $\Pi$ és relativament compacte, per definició la seva adherència $\overline{\Pi}$ és compacta.
+Ja hem vist en el lema \ref{prop-metrica-prokhorov} que $\mathcal{P}(S)$ és un espai mètric
+i que la convergència en la mètrica de Prokhorov és equivalent a la convergència feble.
+Per tant, $\overline{\Pi}$ és compacte per successions,
+i.e. tota successió en $\overline{\Pi}$ admet una subsuccessió feblement convergent.
+En particular, la successió $\{\P_n\}_n \subset \Pi \subset \overline{\Pi}$
+admet una subsuccessió $\{\P_{n_k}\}_k$ feblement convergent
+cap a una mesura de probabilitat $\P \in \overline{\Pi} \subset \mathcal{P}(S)$.
+
+Recíprocament, suposem que tota successió d'elements
+de $\Pi$ admet una subsuccessió feblement convergent.
+Per demostrar que $\Pi$ és relativament compacte, hem de
+veure que la seva adherència $\overline{\Pi}$ és compacta.
+Com que per el lema \ref{prop-metrica-prokhorov}, $\mathcal{P}(S)$ és un espai
+mètric, hem de veure que $\overline{\Pi}$ és compacte per successions.
+És a dir, hem de veure que tota successió en $\overline{\Pi}$
+admet una subsuccessió feblement convergent.
+Novament per el lema \ref{prop-metrica-prokhorov},
+això és equivalent a veure que tota successió en $\overline{\Pi}$
+admet una subsuccessió convergent en la mètrica de Prokhorov.
+
+Sigui doncs $\{\P_n\}_n \subset \overline{\Pi}$ una successió qualsevol.
+Per la definició d'adherència, per a cada $n \in \mathbb{N}$
+existeix una successió $\left\{\P_{n_k}\right\}_k \subset \Pi$
+tal que $\P_{n_k} \to \P_n$ quan $m \to \infty$.
+Considerem doncs la família de probabilitats
+$\left\{ \P_{n_m} : n,m \in \mathbb{N}  \wedge  \P_{n_k} \to \P_n \right\}$
+i la seva successió diagonal $\{\P_{n_n}\}_n \subset \Pi$.
+Per hipòtesi, aquesta successió admet una subsuccessió
+$\{\P_{n_{n_k}}\}_k$ que convergeix cap a una mesura de probabilitat
+$\P \in \mathcal{P}(S)$, tal i com voliem demostrar.
+\end{prova}
