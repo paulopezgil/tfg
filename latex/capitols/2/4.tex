@@ -1,64 +1,73 @@
-\section{L'espai $C[0, \infty]$}
+\section[El principi d'invariància]{Convergència en llei cap al moviment Brownià}
 
-En el cas particular del moviment brownià, és útil treballar amb l'espai $C[0, \infty)$
-de funcions contínues definides a l'interval $[0, \infty)$ i amb valors reals.
-
-
-
-
-\begin{prop}
-La funció $\rho : C[0, \infty) \rightarrow [0, \infty)$ definida per
+Sigui $\{\xi_n\}_n$ una seqüència de variables aleatòries
+independents i idènticament distribuïdes amb esperança 0
+i variància $\sigma^2$, $0 < \sigma < \infty$. Considerem la successió
+de sumes parcials $S_0 = 0$ i $S_n = \sum_{i=1}^n \xi_i$ per a $n \geq 1$.
+Per a cada $n \in \mathbb{N}$, considerem el procés de sumes parcials
 \begin{equation*}
-\rho(f,g) \defeq \sum_{n=1}^{\infty} \frac{1}{2^n} \max_{0 \leq t \leq n}\left( \min\left( |f(t) - g(t)|, 1 \right) \right).
+\frac{1}{\sigma \sqrt{n}} S_{\lfloor nt \rfloor}, \quad t \in [0,\infty],
 \end{equation*}
-és una mètrica a $C[0, \infty)$.
+i la corresponent interpolació lineal d'aquest procés,
+\begin{equation} \label {interpolacio-lineal}
+X_t^{(n)} = \frac{1}{\sigma \sqrt{n}} \left( S_{\lfloor nt \rfloor} + (nt - \lfloor nt \rfloor) \xi_{\lfloor nt \rfloor + 1} \right), \quad t \in [0,\infty].
+\end{equation}
 
+En aquest capítol, demostrarem que la successió de processos
+$\{X^{(n)}\}_n$ convergeix en llei cap al moviment Brownià estàndard $B$.
+
+\begin{lema}
+Siguin $\left\{ X^{n} \right\}_n$, $\left\{ Y^{n} \right\}_n$ i $X$
+variables aleatòries definides en un mateix espai de probabilitat
+$\left( \Omega, \mathcal{F}, \P \right)$ i amb valors a $\mathcal{B}(S)$.
+Suposem que $X^{n} \xrightarrow{\mathcal{L}} X$
+i que $\rho(X^{n}, Y^{n}) \xrightarrow{P} 0$.
+Aleshores, $Y^{n} \xrightarrow{\mathcal{L}} X$.
 \begin{prova}
-\textcolor{blue}{\cite{KaratzasShreve1991}, exercici 4.1}
-\end{prova} 
-\end{prop}
+\textcolor{blue}{\cite{KaratzasShreve1991}, problema 4.16}
+\end{prova}
+\end{lema}
 
 
-A continuació, donarem una caracterització de l'ajustament en l'espai $C[0, \infty)$.
-Per a fer-ho, necessitarem la noció de \emph{mòdul de continuïtat} i el \emph{Teorema d'Arzelà-Ascoli}.
+\begin{lema}
+Siguin $\left\{ X^{n} \right\}_n$ i $X$ variables aleatòries
+amb valors a un espai mètric $\left(S_1, \rho_1\right)$.
+Sigui $\left(S_2, \rho_2\right)$ un altre espai mètric
+i sigui $f: S_1 \to S_2$ una funció contínua.
+Si $X^{n} \xrightarrow{\mathcal{L}} X$, aleshores
+$f(X^{n}) \xrightarrow{\mathcal{L}} f(X)$.
+\begin{prova}
+\textcolor{blue}{\cite{KaratzasShreve1991}, problema 4.5}
+\end{prova}
+\end{lema}
 
-\begin{defi}
-Sigui $T > 0$.
-El \emph{mòdul de continuïtat} a $[0,T]$ és la funció
-$m^T: C[0, \infty) \times [0, \infty) \rightarrow [0, \infty)$
-definida per
+
+\begin{teo} \label{convergencia-interpolacio}
+Sigui $\{X^{(n)}\}_n$ la successió de processos
+definits a l'equació \eqref{interpolacio-lineal}.
+Siguin $0 \leq t_1 < t_2 < \ldots < t_d < \infty$.
+Aleshores, el vector aleatori
 \begin{equation*}
-m^T(f, \delta) \defeq \sup_{\substack{|s-t| \leq \delta \\ 0 \leq s,t \leq T}} |f(s) - f(t)|, \quad \delta \geq 0.
+\left( X_{t_1}^{(n)}, X_{t_2}^{(n)}, \ldots, X_{t_d}^{(n)} \right)
+\xrightarrow{\mathcal{L}}
+\left( B_{t_1}, B_{t_2}, \ldots, B_{t_d} \right)
+\quad \text{quan } n \to \infty,
 \end{equation*}
-\end{defi}
-
-\begin{teo} (Teorema d'Arzelà-Ascoli)
-Un conjunt $A \subset C[0, \infty)$ és relativament compacte si i només si
-\begin{equation*}
-\sup_{f \in A} |f(0)| < \infty
-\end{equation*}
-i a més, per a tot $T > 0$,
-\begin{equation*}
-\lim_{\delta \to 0} \sup_{f \in A} m^T(f, \delta) = 0.
-\end{equation*}
-
-\prova \textcolor{blue}{\cite{KaratzasShreve1991}, pàg 62}, \textcolor{blue}{\cite{Billingsley1999}, pàg 81}
+on $\left\{ B_t, \mathcal{F}_t^B; t \geq 0 \right\}$ és un moviment Brownià estàndard.
+\begin{prova}
+\textcolor{blue}{\cite{KaratzasShreve1991}, teorema 4.15, pàg 67}
+\end{prova}
 \end{teo}
 
-
-
-\begin{teo}
-Una seqüència de mesures de probabilitat $\{\P_n\}_n \subset \mathcal{P}(C[0, \infty))$
-és ajustada si i només si
+\begin{teo} \label{convergencia-finita}
+Sigui $\left\{ X^{(n)}\right\}_n$ una seqüència ajustada de processos continus
+tal que per a qualssevol $0 \leq t_1 \leq ... \leq t_d \leq \infty$,
+la seqüència de vectors aleatòris
+$\{( X_{t_1}^{(n)},...,X_{t_d}^{(n)})\}_n$
+convergeix en llei cap a un vector aleatori
+$\left( X_{t_1},...,X_{t_d} \right)$. És a dir,
 \begin{equation*}
-\lim_{\lambda \uparrow \infty} \sup_{n \geq 1} \P_n\left[ f : |f(0)| \geq \lambda \right] = 0,
+( X_{t_1}^{(n)},...,X_{t_d}^{(n)}) \xrightarrow{\mathcal{L}} (X_{t_1},...,X_{t_d})
 \end{equation*}
-i per a tot $T > 0$, $\epsilon > 0$,
-\begin{equation*}
-\lim_{\delta \downarrow 0} \sup_{n \geq 1} \P_n\left[ f : m^T(f, \delta) \geq \epsilon \right] = 0.
-\end{equation*}
-
-\begin{prova}
-\textcolor{blue}{\cite{KaratzasShreve1991}, pàg 63}
-\end{prova}
+Aleshores, $\{X^{(n)}\}_n$
 \end{teo}

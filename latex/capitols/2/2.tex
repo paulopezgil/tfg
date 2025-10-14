@@ -1,91 +1,100 @@
-\section{Convergència feble, en llei i en probabilitat}
-
-\begin{defi} % 2.1.1
-Sigui $\left\{\P_n\right\}_n \subset \mathcal{P}(S)$ una successió de mesures de probabilitat
-i $\P \in \mathcal{P}(S)$ una altra mesura de probabilitat.
-Diem que $\left\{\P_n\right\}_n$ \emph{convergeix feblement} cap a $\P$, i escrivim $\P_n \xrightarrow{w} \P$,
-si per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleix que
-\begin{equation} \label{eq-convergencia-feble}
-\lim_{n \to \infty} \int_S f(s) d\P_n(s) = \int_S f(s) d\P(s).
-\end{equation}
-\end{defi}
-
-% \begin{obs} \label{obs-topologia-feble}
-% Amb la definició \ref{def-topologia-feble} de topologia feble,
-% totes les integrals involucrades en el límit
-% (\ref{eq-convergencia-feble}) són funcions contínues.
-% \end{obs}
-
-\begin{obs} \label{obs-limit-feble}
-En particular, el límit feble $\P$ és una mesura de probabilitat,
-ja que si prenem $f \equiv 1$ obtenim que
-\begin{equation*}
-\lim_{n \to \infty} \int_S 1 \, d\P_n(s) = \int_S 1 \, d\P(s) \implies \lim_{n \to \infty} \P_n(S) = \P(S) \implies \P(S) = 1.
-\end{equation*}
-\end{obs}
-
-
-
-Ara, considerem una variable aleatòria $X$
-en un espai de probabilitat $(\Omega, \mathcal{F}, \P)$
-amb valors a $(S, \mathcal{B}(S))$.
-Recordem que \emph{la llei de} $X$ es defineix com la mesura de probabilitat $\P X^{-1}$ definida per
-\begin{equation*}
-\P X^{-1}(B) \defeq \P(X^{-1}(B)) = \P(X \in B) \quad \forall B \in \mathcal{S}.
-\end{equation*}
-
-
-
-
-
-\begin{defi} % 2.1.3
-Sigui ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$ una successió d'espais de probabilitat,
-on $\P_n \in \mathcal{P}(S)$ $\forall n \in \mathbb{N}$,
-i considerem en cada un d'ells una variable aleatòria $X_n$ amb valors a $(S, \mathcal{B}(S))$.
-Sigui $\left( \Omega, \mathcal{F}, \\P \right)$ un altre espai de probabilitat, on $\P \in \mathcal{P}(S)$,
-i sigui $X$ una variable aleatòria en aquest espai amb valors a $(S, \mathcal{B}(S))$.
-Diem que la successió $\{X_n\}_n$ \emph{convergeix en llei} cap a $X$, i escrivim $X_n \xrightarrow{\mathcal{L}} X$,
-si les lleis de les variables aleatòries $X_n$ convergeixen feblement cap a la llei de $X$, és a dir, si $\P X_n^{-1} \xrightarrow{w} \P X^{-1}$.
-\end{defi}
-
-\begin{obs}
-Aquesta definició és equivalent a dir que per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleix que
-\begin{equation*}
-\lim_{n \to \infty} \mathbb{E}[f(X_n)] = \mathbb{E}[f(X)],
-\end{equation*}
-ja que mitjançant un canvi de variable tenim que
-\begin{equation*}
-\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega)) d\P_n(\omega) = \int_S f(s) d\P X_n^{-1}(s),
-\end{equation*}
-i de manera anàloga,
-\begin{equation*}
-\mathbb{E}[f(X)] = \int_{\Omega} f(X(\omega)) d\P(\omega) = \int_S f(s) d\P X^{-1}(s).
-\end{equation*}
-\end{obs}
-
-
-
-
-Finalment, introduim un altre mode de convergència que ens serà útil més endavant.
+\section{Ajustament i Teorema de Prohorov}
 
 \begin{defi}
-Sigui $\{X_n\}_n$ una successió de variables aleatòries en un espai
-de probabilitat $\left( \Omega, \mathcal{F}, \P \right)$
-amb valors a $(S, \mathcal{B}(S))$.
-Sigui $X$ una variable aleatòria en el mateix espai de probabilitat
-amb valors a $(S, \mathcal{B}(S))$.
-Diem que $\{X_n\}_n$ \emph{convergeix en probabilitat} cap a $X$,
-i escrivim $X_n \xrightarrow{P} X$, si per a tot $\varepsilon > 0$ es compleix que
-\begin{equation*}
-\lim_{n \to \infty} \P(\rho(X_n, X) > \varepsilon) = 0.
-\end{equation*}
-Com a cas particular, diem que $\{X_n\}_n$
-\emph{convergeix en probabilitat cap a} $a \in S$,
-i escrivim $X_n \xrightarrow{P} a$, si $\{X_n\}_n$ convergeix en
-probabilitat cap a la variable aleatòria constant $X \equiv a$.
-És a dir, si per a tot $\varepsilon > 0$ es compleix que
-\begin{equation*}
-\lim_{n \to \infty} \P(\rho(X_n, a) > \varepsilon) = 0.
-\end{equation*}
-
+Diem que un conjunt A és \emph{relativament compacte} si
+la seva adherència $\overline{A}$ és compacta.
 \end{defi}
+
+Sovint es troba a la literatura una definició alternativa de relativitat compacta
+\footnote{Veure \cite[pàg 57]{Billingsley1999} o \cite[def. 4.6]{KaratzasShreve1991}.}.
+En aquest treball, hem elavorat una demostració de l'equivalència
+entre la definició anterior i la caracterització habitual.
+Per a aquest propòsit, necessitem introduir la mètrica de Prokhorov
+i establir la seva relació amb la convergència feble de mesures de probabilitat.
+
+\begin{defi} \label{def-metrica-prokhorov}
+La mètrica de Prokhorov en $\mathcal{P}(S)$ és la mètrica definida per
+\begin{equation*}
+\pi(\P, \Q) \defeq \inf \left\{ \varepsilon > 0 : \P(A) \leq \Q(A^{\varepsilon}) + \varepsilon \text{ i } \Q(A) \leq \P(A^{\varepsilon}) + \varepsilon, \forall A \in \mathcal{B}(S) \right\},
+\end{equation*}
+on $A^{\varepsilon} \defeq \{ x \in S : \rho(x, A) < \varepsilon \} = \bigcup_{p \in A} B_\varepsilon(p)$
+\end{defi}
+
+\begin{lema} \label{prop-metrica-prokhorov}
+Si $(S, \rho)$ és un espai mètric separable, aleshores la convergència feble
+de mesures de probabilitat en $\mathcal{P}(S)$ és equivalent
+a la convergència de mesures en la mètrica de Prokhorov.
+Per tant, la mètrica de Prokhorov metritza la topologia feble en $\mathcal{P}(S)$.
+\end{lema}
+
+\begin{prova}
+\textcolor{blue}{\cite{Billingsley1999}, pàg 72}
+\end{prova}
+
+\begin{prop} \label{prop-relativament-compacte}
+Una familia $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
+és relativament compacte si i només si tota successió
+d'elements de $\Pi$ admet una subsuccessió feblement convergent.
+És a dir, si donat $\{\P_n\}_n \subset \Pi$,
+existeix una subsuccessió $\{\P_{n_k}\}_k \subset \{\P_n\}_n$
+i una mesura de probabilitat $\P \in \mathcal{P}(S)$
+tals que $\P_{n_k} \xrightarrow{w} \P$.
+\end{prop}
+
+\begin{prova} Primer, suposem que $\Pi$ és relativament compacte
+i sigui $\{\P_n\}_n \subset \Pi$ una successió qualsevol.
+Volem veure que admet una subsuccessió feblement convergent.
+
+Com que $\Pi$ és relativament compacte, per definició la seva adherència $\overline{\Pi}$ és compacta.
+Ja hem vist en el lema \ref{prop-metrica-prokhorov} que $\mathcal{P}(S)$ és un espai mètric
+i que la convergència en la mètrica de Prokhorov és equivalent a la convergència feble.
+Per tant, $\overline{\Pi}$ és compacte per successions,
+i.e. tota successió en $\overline{\Pi}$ admet una subsuccessió feblement convergent.
+En particular, la successió $\{\P_n\}_n \subset \Pi \subset \overline{\Pi}$
+admet una subsuccessió $\{\P_{n_k}\}_k$ feblement convergent
+cap a una mesura de probabilitat $\P \in \overline{\Pi} \subset \mathcal{P}(S)$.
+
+Recíprocament, suposem que tota successió d'elements
+de $\Pi$ admet una subsuccessió feblement convergent.
+Per demostrar que $\Pi$ és relativament compacte, hem de
+veure que la seva adherència $\overline{\Pi}$ és compacta.
+Com que per el lema \ref{prop-metrica-prokhorov}, $\mathcal{P}(S)$ és un espai
+mètric, hem de veure que $\overline{\Pi}$ és compacte per successions.
+És a dir, hem de veure que tota successió en $\overline{\Pi}$
+admet una subsuccessió feblement convergent.
+Novament per el lema \ref{prop-metrica-prokhorov},
+això és equivalent a veure que tota successió en $\overline{\Pi}$
+admet una subsuccessió convergent en la mètrica de Prokhorov.
+
+Sigui doncs $\{\P_n\}_n \subset \overline{\Pi}$ una successió qualsevol.
+Per la definició d'adherència, per a cada $n \in \mathbb{N}$
+existeix una successió $\left\{\P_{n_k}\right\}_k \subset \Pi$
+tal que $\P_{n_k} \to \P_n$ quan $m \to \infty$.
+Considerem doncs la família de probabilitats
+$\left\{ \P_{n_m} : n,m \in \mathbb{N}  \wedge  \P_{n_k} \to \P_n \right\}$
+i la seva successió diagonal $\{\P_{n_n}\}_n \subset \Pi$.
+Per hipòtesi, aquesta successió admet una subsuccessió
+$\{\P_{n_{n_k}}\}_k$ que convergeix cap a una mesura de probabilitat
+$\P \in \mathcal{P}(S)$, tal i com voliem demostrar.
+\end{prova}
+
+\begin{defi}
+Una familia $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
+és \emph{ajustada} si per a tot $\varepsilon > 0$
+existeix un conjunt compacte $K_{\varepsilon} \subset S$
+tal que $\P(K_{\varepsilon}) \geq 1 - \varepsilon$ per a tota $\P \in \Pi$.
+\end{defi}
+
+El següent resultat és necessari per a demostrar el teorema de Donsker
+i en particular l'aproximació del moviment Brownià mitjançant processos estocàstics discrets.
+% Si més no, la seva demostració és extensa i s'escapa dels objectius d'aquest treball.
+% Per a més detalls, es pot consultar \cite[pàg 60-64]{Billingsley1999}.
+
+\begin{teo} (Teorema de Prohorov)
+Una familia $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
+és relativament compacte si i només si és ajustada.
+\end{teo}
+
+\begin{prova}
+M'agradaria comentar si podem evitar aquesta demostració.
+\end{prova}
