@@ -1,9 +1,10 @@
-\section[El principi d'invariància]{Convergència en llei cap al moviment Brownià}
+\section[El principi d'invariància]{El principi d'invariància de Donsker}
 
 Sigui $\{\xi_n\}_n$ una seqüència de variables aleatòries
 independents i idènticament distribuïdes amb esperança 0
-i variància $\sigma^2$, $0 < \sigma < \infty$. Considerem la successió
-de sumes parcials $S_0 = 0$ i $S_n = \sum_{i=1}^n \xi_i$ per a $n \geq 1$.
+i variància $\sigma^2$, $0 < \sigma < \infty$.
+Considerem la successió de sumes parcials
+$S_0 = 0$ i $S_n = \sum_{i=1}^n \xi_i$ per a $n \geq 1$.
 Per a cada $n \in \mathbb{N}$, considerem el procés de sumes parcials
 \begin{equation*}
 \frac{1}{\sigma \sqrt{n}} S_{\lfloor nt \rfloor}, \quad t \in [0,\infty],
@@ -42,7 +43,7 @@ $f(X^{n}) \xrightarrow{\mathcal{L}} f(X)$.
 \end{lema}
 
 
-\begin{teo} \label{convergencia-interpolacio}
+\begin{teo} \label{teo-convergencia-interpolacio}
 Sigui $\left\{X^{(n)}\right\}_n$ la successió de processos
 definits a l'equació \eqref{interpolacio-lineal}.
 Siguin $0 \leq t_1 < t_2 < \ldots < t_d < \infty$.
@@ -59,15 +60,29 @@ on $\left\{ B_t, \mathcal{F}_t^B; t \geq 0 \right\}$ és un moviment Brownià es
 \end{prova}
 \end{teo}
 
-\begin{teo} \label{convergencia-finita}
-Sigui $\left\{ X^{(n)}\right\}_n$ una seqüència ajustada de processos continus
+\begin{teo} \label{teo-convergencia-finita}
+Sigui $X$ un procés continu i sigui $\left\{ X^{(n)}\right\}_n$ una seqüència ajustada de processos continus
 tal que per a qualssevol $0 \leq t_1 \leq ... \leq t_d \leq \infty$,
-la seqüència de vectors aleatòris
-$\{( X_{t_1}^{(n)},...,X_{t_d}^{(n)})\}_n$
-convergeix en llei cap a un vector aleatori
-$\left( X_{t_1},...,X_{t_d} \right)$. És a dir,
 \begin{equation*}
-( X_{t_1}^{(n)},...,X_{t_d}^{(n)}) \xrightarrow{\mathcal{L}} (X_{t_1},...,X_{t_d})
+\left( X_{t_1}^{(n)},...,X_{t_d}^{(n)} \right) \xrightarrow{\mathcal{L}} \left(X_{t_1},...,X_{t_d} \right).
 \end{equation*}
-Aleshores, $\{X^{(n)}\}_n$
+Aleshores, $\left\{X^{(n)}\right\}_n \xrightarrow{\mathcal{L}} X$.
+\begin{prova}
+\textcolor{blue}{\cite{KaratzasShreve1991}, teorema 4.15, pàg 65}
+\end{prova}
+\end{teo}
+
+\begin{teo} (Teorema de Donsker)
+Sigui $\left\{X^{(n)}\right\}_n$ la successió de processos
+definits a l'equació \eqref{interpolacio-lineal}.
+Aleshores, $X^{(n)} \xrightarrow{\mathcal{L}} B$,
+on $\left\{ B_t, \mathcal{F}_t^B; t \geq 0 \right\}$ és un moviment Brownià estàndard.
+\begin{prova}
+\textcolor{blue}{És conseqüència dels teoremes \ref{teo-convergencia-interpolacio}
+i \ref{teo-convergencia-finita}. A més, cal demostrar l'ajustament de la successió $\{X^{(n)}\}_n$,
+que es fa servir en el teorema \ref{teo-convergencia-finita}.
+El mètode per a demostrar l'ajustament és diferent a \cite{KaratzasShreve1991}
+i \cite{Billingsley1999}. M'agradaria comentar-ho més endavant.}
+\end{prova}
+
 \end{teo}
