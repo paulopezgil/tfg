@@ -1,18 +1,4 @@
-\section{Convergència feble i convergència en llei}
-
-A partir d'ara, treballarem en un espai mètric $(S, \rho)$ separable i complet,
-junt amb la seva $\sigma$-àlgebra de Borel $\mathcal{S}$.
-Denotarem per $\mathcal{P}(S)$ l'espai de totes les mesures de probabilitat en $(S, \mathcal{S})$.
-
-És habitual dotar $\mathcal{P}(S)$ amb la anomenada \emph{topologia feble}
-\footnote{Vegeu \cite{Dudley2002} - pàg 194.},
-i metritzar-la mitjançant diverses mètriques.
-Una de les més conegudes és la \emph{mètrica de Prokhorov},
-per la qual la convergència de mesures de probabilitat
-és equivalent a la convergència feble que veurem a continuació
-\footnote{Per a més informació, vegeu \cite{Billingsley1999} - pàg 72 o
-          \cite{Dudley2002} - cap. 11.3}.
-Si més no, aquests resultats no seran necessaris per al treball que desenvoluparem.
+\section{Modes de convergència}
 
 \begin{defi} % 2.1.1
 Sigui $\left\{\P_n\right\}_n \subset \mathcal{P}(S)$ una successió de mesures de probabilitat
@@ -62,7 +48,8 @@ Diem que la successió $\{X_n\}_n$ \emph{convergeix en llei} cap a $X$, i escriv
 si les lleis de les variables aleatòries $X_n$ convergeixen feblement cap a la llei de $X$, és a dir, si $\P X_n^{-1} \xrightarrow{w} \P X^{-1}$.
 \end{defi}
 
-\begin{obs}
+% 2.1.4
+\begin{obs} \label{obs-convergencia-en-llei}
 Aquesta definició és equivalent a dir que per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleixi que
 \begin{equation*}
 \lim_{n \to \infty} \mathbb{E}[f(X_n)] = \mathbb{E}[f(X)],
@@ -76,3 +63,26 @@ i de manera anàloga,
 \mathbb{E}[f(X)] = \int_{\Omega} f(X(\omega)) d\P(\omega) = \int_S f(s) d\P X^{-1}(s).
 \end{equation*}
 \end{obs}
+
+
+\begin{defi}
+Sigui $\{X_n\}_n$ una successió de variables aleatòries en un espai
+de probabilitat $\left( \Omega, \mathcal{F}, \P \right)$
+amb valors a $(S, \mathcal{B}(S))$.
+Sigui $X$ una variable aleatòria en el mateix espai de probabilitat
+amb valors a $(S, \mathcal{B}(S))$.
+Diem que $\{X_n\}_n$ \emph{convergeix en probabilitat} cap a $X$,
+i escrivim $X_n \xrightarrow{P} X$, si per a tot $\varepsilon > 0$ es compleix que
+\begin{equation*}
+\lim_{n \to \infty} \P(\rho(X_n, X) > \varepsilon) = 0.
+\end{equation*}
+Com a cas particular, diem que $\{X_n\}_n$
+\emph{convergeix en probabilitat cap a} $a \in S$,
+i escrivim $X_n \xrightarrow{P} a$, si $\{X_n\}_n$ convergeix en
+probabilitat cap a la variable aleatòria constant $X \equiv a$.
+És a dir, si per a tot $\varepsilon > 0$ es compleix que
+\begin{equation*}
+\lim_{n \to \infty} \P(\rho(X_n, a) > \varepsilon) = 0.
+\end{equation*}
+
+\end{defi}

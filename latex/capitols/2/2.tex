@@ -1,24 +1,33 @@
 \section{Ajustament i Teorema de Prohorov}
 
 \begin{defi}
-Diem que una familia $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
+Diem que una família $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
 és relativament compacte si i només si tota successió
 d'elements de $\Pi$ admet una subsuccessió feblement convergent.
 És a dir, si donada $\{\P_n\}_n \subset \Pi$,
-existeix una subsuccessió $\{\P_{n_k}\}_k \subset \{\P_n\}_n$
+existeixen una subsuccessió $\{\P_{n_k}\}_k \subset \{\P_n\}_n$
 i una mesura de probabilitat $\P \in \mathcal{P}(S)$
 tals que $\P_{n_k} \xrightarrow{w} \P$.
 \end{defi}
 
+\begin{obs} \label{obs-relativament-compacte}
+Si una successió $\left\{\P_n\right\}_n \subset \mathcal{P}(S)$ de mesures de probabilitat
+convergeix feblement cap a una mesura de probabilitat $\P$,
+aleshores és relativament compacte, ja que tota subsuccessió
+$\left\{\P_{n_k}\right\}_k$ convergeix feblement o bé cap a $\P$
+o bé cap a una altra mesura de probabilitat $\Q \in \left\{\P_n\right\}_n$,
+en el que cas que $\P_{n_k} = \Q$ per a tot $k > n_0$, per algun $n_0 \in \mathbb{N}$.
+\end{obs}
+
 \begin{defi}
-Diem que una familia $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
-és \emph{ajustada} si per a tot $\varepsilon > 0$
+Diem que una família $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
+és \emph{ajustada} si $\forall \varepsilon > 0$
 existeix un conjunt compacte $K_{\varepsilon} \subset S$
-tal que $\P(K_{\varepsilon}) \geq 1 - \varepsilon$ per a tota $\P \in \Pi$.
+tal que $\P(K_{\varepsilon}) \geq 1 - \varepsilon$, $\forall \P \in \Pi$.
 \end{defi}
 
 \begin{teo} (Teorema de Prohorov)
-Una familia $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
+Una família $\Pi \subset \mathcal{P}(S)$ de mesures de probabilitat
 és relativament compacte si i només si és ajustada.
 \end{teo}
 
