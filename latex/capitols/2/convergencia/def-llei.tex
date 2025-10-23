@@ -1,0 +1,17 @@
+Ara, considerem una variable aleatòria $X$
+en un espai de probabilitat $(\Omega, \mathcal{F}, \P)$
+amb valors a $(S, \mathcal{S})$.
+Recordem que \emph{la llei de} $X$ es defineix com la mesura de probabilitat $\P X^{-1}$ definida per
+\begin{equation*}
+\P X^{-1}(B) \defeq \P(X^{-1}(B)) = \P(X \in B) \quad \forall B \in \mathcal{S}.
+\end{equation*}
+
+\begin{defi} % 2.1.3
+Sigui ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$ una successió d'espais de probabilitat,
+on $\P_n \in \mathcal{P}(S)$ $\forall n \in \mathbb{N}$,
+i considerem en cada un d'ells una variable aleatòria $X_n$ amb valors a $(S, \mathcal{S})$.
+Sigui $\left( \Omega, \mathcal{F}, \P \right)$ un altre espai de probabilitat, on $\P \in \mathcal{P}(S)$,
+i sigui $X$ una variable aleatòria en aquest espai amb valors a $(S, \mathcal{S})$.
+Diem que la successió $\{X_n\}_n$ \emph{convergeix en llei} cap a $X$, i escrivim $X_n \xrightarrow{\mathcal{L}} X$,
+si les lleis de les variables aleatòries $X_n$ convergeixen feblement cap a la llei de $X$, és a dir, si $\P X_n^{-1} \xrightarrow{w} \P X^{-1}$.
+\end{defi}

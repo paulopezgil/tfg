@@ -1,0 +1,16 @@
+\begin{lema} \label{lema-mapa-continua}
+Siguin $\left\{ X^{(n)} \right\}_n$ i $X$ variables aleatòries
+amb valors a un espai mètric $\left(S_1, \rho_1\right)$.
+Sigui $\left(S_2, \rho_2\right)$ un altre espai mètric
+i sigui $f: S_1 \to S_2$ una funció contínua.
+Si $X^{(n)} \xrightarrow{\mathcal{L}} X$, aleshores
+$f(X^{(n)}) \xrightarrow{\mathcal{L}} f(X)$.
+\textcolor{blue}{\cite{Billingsley1999}, pàg 20}
+\begin{prova}
+Utilitzant la observació \ref{obs-convergencia-en-llei},
+tenim que
+\begin{equation*}
+\lim_{n \to \infty} \mathbb{E}[f(X^{(n)})] = \mathbb{E}[f(X)].
+\end{equation*}
+\end{prova}
+\end{lema}

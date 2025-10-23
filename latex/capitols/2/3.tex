@@ -1,127 +1,19 @@
 \section{El principi d'invariància de Donsker}
 
-Sigui $\{\xi_n\}_n$ una seqüència de variables aleatòries
-independents i idènticament distribuïdes amb esperança 0
-i variància $\sigma^2$, $0 < \sigma < \infty$.
-Considerem la successió de sumes parcials
-$S_0 = 0$ i $S_n = \sum_{i=1}^n \xi_i$ per a $n \geq 1$.
-Per a cada $n \in \mathbb{N}$, considerem el procés de sumes parcials
-\begin{equation*}
-\frac{1}{\sigma \sqrt{n}} S_{\lfloor nt \rfloor}, \quad t \in [0,\infty],
-\end{equation*}
-i la corresponent interpolació lineal d'aquest procés,
-\begin{equation} \label {interpolacio-lineal}
-X_t^{(n)} = \frac{1}{\sigma \sqrt{n}} \left( S_{\lfloor nt \rfloor} + (nt - \lfloor nt \rfloor) \xi_{\lfloor nt \rfloor + 1} \right), \quad t \in [0,\infty].
-\end{equation}
+% introducció
+\input{capitols/2/donsker/intro.tex}
 
-En aquest capítol, demostrarem que la successió de processos
-$\{X^{(n)}\}_n$ convergeix en llei cap al moviment Brownià estàndard $B$.
+% lema 2.3.1
+\input{capitols/2/donsker/lema1.tex}
 
-% 2.3.1
-\begin{lema} \label{lema-estabilitat-convergencia-en-llei}
-Siguin $\left\{ X^{(n)} \right\}_n$, $\left\{ Y^{(n)} \right\}_n$ i $X$
-variables aleatòries amb valors a $(\mathcal{S}, \rho)$,
-tals que per a tot $n \geq 1$, $X^{(n)}$ i $Y^{(n)}$
-estan definides en el mateix espai de probabilitats.
-Suposem que $X^{n} \xrightarrow{\mathcal{L}} X$
-i que $\rho(X^{n}, Y^{n}) \xrightarrow{P} 0$.
-Aleshores, $Y^{n} \xrightarrow{\mathcal{L}} X$.
-\begin{prova}
-Siguin ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$
-els espais de probabilitat on estan definides les variables aleatòries
-$X^{(n)}$ i $Y^{(n)}$.
-Sigui ${\left\{ (\Omega, \mathcal{F}, \P) \right\}}_n$
-un altre espai de probabilitat on està definida la variable aleatòria $X$.
-Sigui $f: \mathcal{S} \to \mathbb{R}$ una funció contínua i acotada.
+% lema 2.3.2
+\input{capitols/2/donsker/lema2.tex}
 
-Per la observació \ref{obs-convergencia-en-llei}, és suficient demostrar que
-\begin{equation*}
-\lim_{n \to \infty} \mathbb{E}_n[f(X^{(n)}) - f(Y^{(n)})] = 0.
-\end{equation*}
+% teorema 2.3.3
+\input{capitols/2/donsker/teorema1.tex}
 
-Sigui $M = \sup_{s \in \mathcal{S}} |f(s)| < \infty$.
-Per la observació \ref{obs-relativament-compacte},
-com $X^{n} \xrightarrow{\mathcal{L}} X$,
-aleshores ${X^{n}}_n$ és relativament compacte.
-Per el teorema de Prohorov, aleshores és ajustada.
-Per tant, per a tot $\varepsilon > 0$, existeix un conjunt compacte
-$K_{\varepsilon} \subset \mathcal{S}$ tal que
-\begin{equation*}
-\P_n(X^{(n)} \in K_{\varepsilon}) \geq 1 - \frac{\varepsilon}{6M}, \quad \forall n \in \mathbb{N}.
-\end{equation*}
-Com f és continua, existeix $0 < \delta < 1$ tal que $|f(x)-f(y)| < \varepsilon$
-per a qualssevol $x,y \in K_{\varepsilon}$ tals que $\rho(x,y) < \delta$.
-Sigui $n_0 \in \mathbb{N}$ tal que
-\begin{equation*}
-\P_n(\rho(X^{(n)}, Y^{(n)}) > \delta) < \frac{\varepsilon}{6M}, \quad \forall n \geq n_0.
-\end{equation*}
-Aleshores, per a tot $n \geq n_0$,
-\begin{align*}
-\left|
-\int_{\Omega_n} f(X^{(n)}) - f(Y^{(n)}) \, d\P_n
-\right|
-&\le
-\frac{\varepsilon}{3} \P_n\left(X^{(n)} \in K, \rho(X^{(n)}, Y^{(n)}) < \delta\right) \\
-&\quad + 2M \, \P_n\left(X^{(n)} \notin K\right) \\
-&\quad + 2M \, \P_n\left(\rho(X^{(n)}, Y^{(n)}) \ge \delta\right) \le \varepsilon.
-\end{align*}
-\end{prova}
-\end{lema}
+% teorema 2.3.4
+\input{capitols/2/donsker/teorema2.tex}
 
-% 2.3.2
-\begin{lema} \label{lema-mapa-continua}
-Siguin $\left\{ X^{n} \right\}_n$ i $X$ variables aleatòries
-amb valors a un espai mètric $\left(S_1, \rho_1\right)$.
-Sigui $\left(S_2, \rho_2\right)$ un altre espai mètric
-i sigui $f: S_1 \to S_2$ una funció contínua.
-Si $X^{n} \xrightarrow{\mathcal{L}} X$, aleshores
-$f(X^{n}) \xrightarrow{\mathcal{L}} f(X)$.
-\begin{prova}
-\textcolor{blue}{\cite{KaratzasShreve1991}, problema 4.5}
-\end{prova}
-\end{lema}
-
-
-\begin{teo} \label{teo-convergencia-interpolacio}
-Sigui $\left\{X^{(n)}\right\}_n$ la successió de processos
-definits a l'equació \eqref{interpolacio-lineal}.
-Siguin $0 \leq t_1 < t_2 < \ldots < t_d < \infty$.
-Aleshores,
-\begin{equation*}
-\left( X_{t_1}^{(n)}, X_{t_2}^{(n)}, \ldots, X_{t_d}^{(n)} \right)
-\xrightarrow{\mathcal{L}}
-\left( B_{t_1}, B_{t_2}, \ldots, B_{t_d} \right)
-\quad \text{quan } n \to \infty,
-\end{equation*}
-on $\left\{ B_t, \mathcal{F}_t^B; t \geq 0 \right\}$ és un moviment Brownià estàndard.
-\begin{prova}
-\textcolor{blue}{\cite{KaratzasShreve1991}, teorema 4.15, pàg 67}
-\end{prova}
-\end{teo}
-
-\begin{teo} \label{teo-convergencia-finita}
-Sigui $X$ un procés continu i sigui $\left\{ X^{(n)}\right\}_n$ una seqüència ajustada de processos continus
-tal que per a qualssevol $0 \leq t_1 \leq ... \leq t_d \leq \infty$,
-\begin{equation*}
-\left( X_{t_1}^{(n)},...,X_{t_d}^{(n)} \right) \xrightarrow{\mathcal{L}} \left(X_{t_1},...,X_{t_d} \right).
-\end{equation*}
-Aleshores, $\left\{X^{(n)}\right\}_n \xrightarrow{\mathcal{L}} X$.
-\begin{prova}
-\textcolor{blue}{\cite{KaratzasShreve1991}, teorema 4.15, pàg 65}
-\end{prova}
-\end{teo}
-
-\begin{teo} (Teorema de Donsker)
-Sigui $\left\{X^{(n)}\right\}_n$ la successió de processos
-definits a l'equació \eqref{interpolacio-lineal}.
-Aleshores, $X^{(n)} \xrightarrow{\mathcal{L}} B$,
-on $\left\{ B_t, \mathcal{F}_t^B; t \geq 0 \right\}$ és un moviment Brownià estàndard.
-\begin{prova}
-\textcolor{blue}{És conseqüència dels teoremes \ref{teo-convergencia-interpolacio}
-i \ref{teo-convergencia-finita}. A més, cal demostrar l'ajustament de la successió $\{X^{(n)}\}_n$,
-que es fa servir en el teorema \ref{teo-convergencia-finita}.
-El mètode per a demostrar l'ajustament és diferent a \cite{KaratzasShreve1991}
-i \cite{Billingsley1999}. M'agradaria comentar-ho més endavant.}
-\end{prova}
-
-\end{teo}
+% teorema de Donsker 2.3.5
+\input{capitols/2/donsker/teorema_donsker.tex}

@@ -1,0 +1,14 @@
+\begin{obs} \label{obs-convergencia-en-llei}
+Aquesta definició és equivalent a dir que per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleixi que
+\begin{equation*}
+\lim_{n \to \infty} \mathbb{E}[f(X_n)] = \mathbb{E}[f(X)],
+\end{equation*}
+ja que mitjançant un canvi de variable tenim que
+\begin{equation*}
+\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega)) d\P_n(\omega) = \int_S f(s) d\P X_n^{-1}(s),
+\end{equation*}
+i de manera anàloga,
+\begin{equation*}
+\mathbb{E}[f(X)] = \int_{\Omega} f(X(\omega)) d\P(\omega) = \int_S f(s) d\P X^{-1}(s).
+\end{equation*}
+\end{obs}

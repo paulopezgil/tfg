@@ -1,88 +1,16 @@
 \section{Modes de convergència}
 
-\begin{defi} % 2.1.1
-Sigui $\left\{\P_n\right\}_n \subset \mathcal{P}(S)$ una successió de mesures de probabilitat
-i $\P \in \mathcal{P}(S)$ una altra mesura de probabilitat.
-Diem que $\left\{\P_n\right\}_n$ \emph{convergeix feblement} cap a $\P$, i escrivim $\P_n \xrightarrow{w} \P$,
-si per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleix que
-\begin{equation*}
-\lim_{n \to \infty} \int_S f(s) d\P_n(s) = \int_S f(s) d\P(s).
-\end{equation*}
-\end{defi}
+% definició 2.1.1
+\input{capitols/2/convergencia/def-feble.tex}
 
-% \begin{obs} \label{obs-topologia-feble}
-% Amb la definició \ref{def-topologia-feble} de topologia feble,
-% totes les integrals involucrades en el límit
-% (\ref{eq-convergencia-feble}) són funcions contínues.
-% \end{obs}
+% observació 2.1.2
+\input{capitols/2/convergencia/obs-feble.tex}
 
-\begin{obs} \label{obs-limit-feble} % 2.1.2
-En particular, el límit feble $\P$ és una mesura de probabilitat,
-ja que si prenem $f \equiv 1$ obtenim que
-\begin{equation*}
-\lim_{n \to \infty} \int_S 1 \, d\P_n(s) = \int_S 1 \, d\P(s) \implies \lim_{n \to \infty} \P_n(S) = \P(S) \implies \P(S) = 1.
-\end{equation*}
-\end{obs}
+% definició 2.2.3
+\input{capitols/2/convergencia/def-llei.tex}
 
+% observació 2.2.3
+\input{capitols/2/convergencia/obs-llei.tex}
 
-
-Ara, considerem una variable aleatòria $X$
-en un espai de probabilitat $(\Omega, \mathcal{F}, \P)$
-amb valors a $(S, \mathcal{S})$.
-Recordem que \emph{la llei de} $X$ es defineix com la mesura de probabilitat $\P X^{-1}$ definida per
-\begin{equation*}
-\P X^{-1}(B) \defeq \P(X^{-1}(B)) = \P(X \in B) \quad \forall B \in \mathcal{S}.
-\end{equation*}
-
-
-
-
-
-\begin{defi} % 2.1.3
-Sigui ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$ una successió d'espais de probabilitat,
-on $\P_n \in \mathcal{P}(S)$ $\forall n \in \mathbb{N}$,
-i considerem en cada un d'ells una variable aleatòria $X_n$ amb valors a $(S, \mathcal{S})$.
-Sigui $\left( \Omega, \mathcal{F}, \P \right)$ un altre espai de probabilitat, on $\P \in \mathcal{P}(S)$,
-i sigui $X$ una variable aleatòria en aquest espai amb valors a $(S, \mathcal{S})$.
-Diem que la successió $\{X_n\}_n$ \emph{convergeix en llei} cap a $X$, i escrivim $X_n \xrightarrow{\mathcal{L}} X$,
-si les lleis de les variables aleatòries $X_n$ convergeixen feblement cap a la llei de $X$, és a dir, si $\P X_n^{-1} \xrightarrow{w} \P X^{-1}$.
-\end{defi}
-
-% 2.1.4
-\begin{obs} \label{obs-convergencia-en-llei}
-Aquesta definició és equivalent a dir que per a tota funció $f: S \to \mathbb{R}$ contínua i acotada es compleixi que
-\begin{equation*}
-\lim_{n \to \infty} \mathbb{E}[f(X_n)] = \mathbb{E}[f(X)],
-\end{equation*}
-ja que mitjançant un canvi de variable tenim que
-\begin{equation*}
-\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega)) d\P_n(\omega) = \int_S f(s) d\P X_n^{-1}(s),
-\end{equation*}
-i de manera anàloga,
-\begin{equation*}
-\mathbb{E}[f(X)] = \int_{\Omega} f(X(\omega)) d\P(\omega) = \int_S f(s) d\P X^{-1}(s).
-\end{equation*}
-\end{obs}
-
-
-\begin{defi}
-Sigui $\{X_n\}_n$ una successió de variables aleatòries en un espai
-de probabilitat $\left( \Omega, \mathcal{F}, \P \right)$
-amb valors a $(S, \mathcal{B}(S))$.
-Sigui $X$ una variable aleatòria en el mateix espai de probabilitat
-amb valors a $(S, \mathcal{B}(S))$.
-Diem que $\{X_n\}_n$ \emph{convergeix en probabilitat} cap a $X$,
-i escrivim $X_n \xrightarrow{P} X$, si per a tot $\varepsilon > 0$ es compleix que
-\begin{equation*}
-\lim_{n \to \infty} \P(\rho(X_n, X) > \varepsilon) = 0.
-\end{equation*}
-Com a cas particular, diem que $\{X_n\}_n$
-\emph{convergeix en probabilitat cap a} $a \in S$,
-i escrivim $X_n \xrightarrow{P} a$, si $\{X_n\}_n$ convergeix en
-probabilitat cap a la variable aleatòria constant $X \equiv a$.
-És a dir, si per a tot $\varepsilon > 0$ es compleix que
-\begin{equation*}
-\lim_{n \to \infty} \P(\rho(X_n, a) > \varepsilon) = 0.
-\end{equation*}
-
-\end{defi}
+% definició 2.2.4
+\input{capitols/2/convergencia/def-prob.tex}

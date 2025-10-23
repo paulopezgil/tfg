@@ -1,0 +1,16 @@
+Sigui $\{\xi_n\}_n$ una seqüència de variables aleatòries
+independents i idènticament distribuïdes amb esperança 0
+i variància $\sigma^2$, $0 < \sigma < \infty$.
+Considerem la successió de sumes parcials
+$S_0 = 0$ i $S_n = \sum_{i=1}^n \xi_i$ per a $n \geq 1$.
+Per a cada $n \in \mathbb{N}$, considerem el procés de sumes parcials
+\begin{equation*}
+\frac{1}{\sigma \sqrt{n}} S_{\lfloor nt \rfloor}, \quad t \in [0,\infty],
+\end{equation*}
+i la corresponent interpolació lineal d'aquest procés,
+\begin{equation} \label {interpolacio-lineal}
+X_t^{(n)} = \frac{1}{\sigma \sqrt{n}} \left( S_{\lfloor nt \rfloor} + (nt - \lfloor nt \rfloor) \xi_{\lfloor nt \rfloor + 1} \right), \quad t \in [0,\infty].
+\end{equation}
+
+En aquest capítol, demostrarem que la successió de processos
+$\{X^{(n)}\}_n$ convergeix en llei cap al moviment Brownià estàndard $B$.
