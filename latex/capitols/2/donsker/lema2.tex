@@ -1,16 +1,23 @@
 \begin{lema} \label{lema-mapa-continua}
 Siguin $\left\{ X^{(n)} \right\}_n$ i $X$ variables aleatòries
-amb valors a un espai mètric $\left(S_1, \rho_1\right)$.
-Sigui $\left(S_2, \rho_2\right)$ un altre espai mètric
-i sigui $f: S_1 \to S_2$ una funció contínua.
+amb valors a $\left(S, \mathcal{S}\right)$.
+Sigui $\left(S', \mathcal{S'}\right)$ un altre espai mètric
+i sigui $\varphi: S \to S'$ una funció contínua.
 Si $X^{(n)} \xrightarrow{\mathcal{L}} X$, aleshores
-$f(X^{(n)}) \xrightarrow{\mathcal{L}} f(X)$.
+$\varphi(X^{(n)}) \xrightarrow{\mathcal{L}} \varphi(X)$.
 \textcolor{blue}{\cite{Billingsley1999}, pàg 20}
+
 \begin{prova}
-Utilitzant la observació \ref{obs-convergencia-en-llei},
-tenim que
+Sigui $f: S' \to \mathbb{R}$ una funció contínua i acotada.
+Aleshores, $f \circ \varphi: S \to \mathbb{R}$ és també contínua i acotada.
+Per l'observació \ref{obs-convergencia-en-llei},
+com $X^{(n)} \xrightarrow{\mathcal{L}} X$, aleshores
 \begin{equation*}
-\lim_{n \to \infty} \mathbb{E}[f(X^{(n)})] = \mathbb{E}[f(X)].
+\lim_{n \to \infty} \mathbb{E}[f(\varphi(X^{(n)}))] =
+\lim_{n \to \infty} \mathbb{E}[(f \circ \varphi)(X^{(n)})] =
+\mathbb{E}[(f \circ \varphi)(X)] = \mathbb{E}[f(\varphi(X))].
 \end{equation*}
+Novament per l'observació \ref{obs-convergencia-en-llei}, això equival a
+$\varphi(X^{(n)}) \xrightarrow{\mathcal{L}} \varphi(X)$.
 \end{prova}
 \end{lema}

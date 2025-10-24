@@ -1,12 +1,15 @@
 \begin{lema} \label{lema-estabilitat-convergencia-en-llei}
 Siguin $\left\{ X^{(n)} \right\}_n$, $\left\{ Y^{(n)} \right\}_n$ i $X$
-variables aleatòries amb valors a $(\mathcal{S}, \rho)$,
+variables aleatòries amb valors a $(S, \rho)$,
 tals que per a tot $n \geq 1$, $X^{(n)}$ i $Y^{(n)}$
 estan definides en el mateix espai de probabilitats.
 Suposem que $X^{n} \xrightarrow{\mathcal{L}} X$
 i que $\rho(X^{n}, Y^{n}) \xrightarrow{P} 0$.
 Aleshores, $Y^{n} \xrightarrow{\mathcal{L}} X$.
 \textcolor{blue}{\cite{KaratzasShreve1991}, pàg 120}
+
+
+
 \begin{prova}
 Siguin ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$
 els espais de probabilitat on estan definides les variables aleatòries
@@ -19,6 +22,8 @@ Per la observació \ref{obs-convergencia-en-llei}, és suficient demostrar que
 \lim_{n \to \infty} \mathbb{E}_n[f(X^{(n)}) - f(Y^{(n)})] = 0.
 \end{equation*}
 
+
+
 Sigui $M = \sup_{s \in \mathcal{S}} |f(s)| < \infty$.
 Per la observació \ref{obs-relativament-compacte},
 com $X^{(n)} \xrightarrow{\mathcal{L}} X$,
@@ -29,13 +34,19 @@ $K_{\varepsilon} \subset \mathcal{S}$ tal que
 \begin{equation*}
 \P_n(X^{(n)} \in K_{\varepsilon}) \geq 1 - \frac{\varepsilon}{6M}, \quad \forall n \in \mathbb{N}.
 \end{equation*}
-Com f és continua, existeix $0 < \delta < 1$ tal que $|f(x)-f(y)| < \varepsilon$
+
+
+
+Com f és continua, existeix $0 < \delta < 1$ tal que $|f(x)-f(y)| < \varepsilon/3$
 per a qualssevol $x,y \in K_{\varepsilon}$ tals que $\rho(x,y) < \delta$.
-Sigui $n_0 \in \mathbb{N}$ tal que
+Per altra banda, per hipòtesi existeix $n_0 \in \mathbb{N}$ tal que
 \begin{equation*}
 \P_n(\rho(X^{(n)}, Y^{(n)}) > \delta) < \frac{\varepsilon}{6M}, \quad \forall n \geq n_0.
 \end{equation*}
-Aleshores, per a tot $n \geq n_0$,
+
+
+
+Tot plegat, per a tot $n \geq n_0$,
 \begin{align*}
 \left|
 \int_{\Omega_n} f(X^{(n)}) - f(Y^{(n)}) \, d\P_n
@@ -43,7 +54,7 @@ Aleshores, per a tot $n \geq n_0$,
 &\le
 \frac{\varepsilon}{3} \P_n\left(X^{(n)} \in K, \rho(X^{(n)}, Y^{(n)}) < \delta\right) \\
 &\quad + 2M \, \P_n\left(X^{(n)} \notin K\right) \\
-&\quad + 2M \, \P_n\left(\rho(X^{(n)}, Y^{(n)}) \ge \delta\right) \le \varepsilon.
+&\quad + 2M \, \P_n\left(\rho(X^{(n)}, Y^{(n)}) > \delta\right) \le \varepsilon.
 \end{align*}
 \end{prova}
 \end{lema}
