@@ -25,9 +25,9 @@ Per la observació \ref{obs-convergencia-en-llei}, és suficient demostrar que
 
 
 Sigui $M = \sup_{s \in \mathcal{S}} |f(s)| < \infty$.
-Per la observació \ref{obs-relativament-compacte},
+Per el corol·lari \ref{coro-relativament-compacte},
 com $X^{(n)} \xrightarrow{\mathcal{L}} X$,
-aleshores $\{X^{(n)}\}_n$ és relativament compacte.
+aleshores $\{X^{(n)}\}_n$ és relativament compacta.
 Per el teorema de Prohorov, aleshores $\{X^{(n)}\}_n$ és ajustada.
 Per tant, per a tot $\varepsilon > 0$, existeix un conjunt compacte
 $K_{\varepsilon} \subset \mathcal{S}$ tal que
@@ -39,7 +39,8 @@ $K_{\varepsilon} \subset \mathcal{S}$ tal que
 
 Com f és continua, existeix $0 < \delta < 1$ tal que $|f(x)-f(y)| < \varepsilon/3$
 per a qualssevol $x,y \in K_{\varepsilon}$ tals que $\rho(x,y) < \delta$.
-Per altra banda, per hipòtesi existeix $n_0 \in \mathbb{N}$ tal que
+Per altra banda, per hipòtesi $\rho(X^{n}, Y^{n}) \xrightarrow{P} 0$.
+Per tant, existeix $n_0 \in \mathbb{N}$ tal que
 \begin{equation*}
 \P_n(\rho(X^{(n)}, Y^{(n)}) > \delta) < \frac{\varepsilon}{6M}, \quad \forall n \geq n_0.
 \end{equation*}
