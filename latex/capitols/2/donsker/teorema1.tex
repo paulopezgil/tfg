@@ -10,7 +10,97 @@ Aleshores,
 \quad \text{quan } n \to \infty,
 \end{equation*}
 on $\left\{ B_t, \mathcal{F}_t^B; t \geq 0 \right\}$ és un moviment Brownià estàndard.
-\begin{prova}
 \textcolor{blue}{\cite{KaratzasShreve1991}, teorema 4.15, pàg 67}
+
+
+
+
+
+
+\begin{prova}
+Considerarem el cas $d=2$. El cas general és anàleg però la notació és més feixuga.
+Siguin $s=t_1$ i $t=t_2$. Volem veure que
+\[
+\big(X^{(n)}_s, X^{(n)}_t\big) \xrightarrow{\mathcal{L}} \big(B_s, B_t\big).
+\]
+
+Per la definició d'interpolació lineal \eqref{interpolacio-lineal}, per a tot $u\ge 0$ tenim
+\[
+\left| X^{(n)}_u - \frac{1}{\sigma\sqrt{n}} S_{\lfloor nu\rfloor} \right|
+\le \frac{1}{\sigma\sqrt{n}}\, \big|\xi_{\lfloor nu\rfloor+1}\big|.
+\]
+Ara, sigui $\varepsilon>0$. Aplicant la desigualtat de Txebixev,
+\[
+\P\!\left( \left| X^{(n)}_u - \frac{1}{\sigma\sqrt{n}} S_{\lfloor nu\rfloor} \right| > \varepsilon \right)
+\le \P\!\left( \frac{1}{\sigma\sqrt{n}}\, \big|\xi_{\lfloor nu\rfloor+1}\big| > \varepsilon \right)
+\le \frac{\sigma^2}{\varepsilon^2\,\sigma^2 n} = \frac{1}{\varepsilon^2 n} \xrightarrow{n\to\infty} 0.
+\]
+En particular, això val per $u=s$ i $u=t$, i per tant
+\[
+\left( \frac{1}{\sigma\sqrt{n}} S_{\lfloor ns\rfloor},\, \frac{1}{\sigma\sqrt{n}} S_{\lfloor nt\rfloor} \right)
+\xrightarrow{P}
+\big( X^{(n)}_s, X^{(n)}_t\big).
+\]
+Per el lema \ref{lema-estabilitat-convergencia-en-llei}, és suficient provar que
+\[
+\left( \frac{1}{\sigma\sqrt{n}} S_{\lfloor ns\rfloor},\, \frac{1}{\sigma\sqrt{n}} S_{\lfloor nt\rfloor} \right)
+\xrightarrow{\mathcal{L}} (B_s, B_t).
+\]
+
+Considerem l'aplicació contínua $\varphi(x,y)=(x, y-x)$.
+Per el lema \ref{lema-mapa-continua}, és equivalent demostrar que
+\[
+\left( \frac{1}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j,\, \frac{1}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right)
+\xrightarrow{\mathcal{L}} (B_s, B_t-B_s).
+\]
+Per construcció, les variables aleatòries $\{\xi_j\}_{j\ge1}$ són independents.
+Així doncs, les variables aleatòries dels dos sumatoris son diferents i, per tant, independents.
+Siguin $u,v\in\mathbb{R}$. Aleshores,
+\begin{multline} \label{eq-func-caracteristica}
+\lim_{n \to \infty} \mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j + \frac{iv}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right\}\right]=\\
+=\mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \right\}\right]
+\cdot \mathbb{E}\left[\exp\!\left\{ \frac{iv}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right\}\right].
+\end{multline}
+
+
+
+
+
+
+
+Fixem-nos en el primer factor (l'altre és idèntic substituïnt $s$ per $t-s$). Com que
+\[
+\left|
+\frac{1}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j
+-
+\frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j
+\right|
+\xrightarrow[n\to\infty]{P} 0,
+\]
+i pel teorema central del límit
+\[
+\frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \xrightarrow{\mathcal{L}} \mathcal{N}(0,s),
+\]
+aleshores obtenim que
+\[
+\mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \right\}\right]
+= e^{-\frac{u^2 s}{2}}.
+\]
+De manera anàloga,
+\[
+\mathbb{E}\left[\exp\!\left\{ \frac{iv}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right\}\right]
+= e^{-\frac{v^2 (t-s)}{2}}.
+\]
+
+
+
+
+
+
+Substituïnt aquestes expressions a \eqref{eq-func-caracteristica}, obtenim
+\[
+\lim_{n \to \infty} \mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j + \frac{iv}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right\}\right]
+= e^{-\frac{u^2 s}{2}}\, e^{-\frac{v^2 (t-s)}{2}},
+\]
 \end{prova}
 \end{teo}
