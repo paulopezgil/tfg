@@ -1,0 +1,54 @@
+Considerem les variables aleatòries $\left\{\xi_n\right\}_n$
+independents i idènticament distribuïdes amb valors a $\{-1,1\}$,
+tals que
+\[
+\P(\xi_n=1)=\P(\xi_n=-1)=\frac{1}{2} \quad \quad n \geq 1.
+\]
+Diem que $S_n=\sum_{i=1}^n \xi_i$ és un passeig aleatòri.
+Com a cas particular del teorema de Donsker, veurem que
+la corresponent interpolació linial $\{X^{(n)}\}_n$,
+definida com a \eqref{interpolacio-lineal}, convergeix en llei
+al moviment brownià.
+
+Donats els resultats de la secció anterior, només queda per provar
+l'ajustament de la successió de processos $\{X^{(n)}\}_n$.
+Per a aquest propòsit, ens serà útil el següent criteri:
+
+\begin{teo}[Criteri de Billingsley]
+Una successió $\{X^{(n)}\}_n$ és ajustada si se satisfan aquestes dues condicions:
+\begin{enumerate}[label=\alph*)]
+    \item La successió $\{X^{(n)}_0\}_n$ és ajustada.
+    \item Existeixen constants $\gamma \geq 0$ i $\alpha > 1$
+          i una funció $F \in \mathcal{C}$ no decreixent tal que
+    \begin{equation} \label{eq:billingsley-condition}
+    \P\{|X^{(n)}_t - X^{(n)}_s| \geq \lambda\} \leq \frac{1}{\lambda^\gamma} |F(t) - F(s)|^\alpha
+    \end{equation}
+    per a tot $s, t \in \mathbb{R}$, $n \in \mathbb{N}$ i $\lambda > 0$.
+\end{enumerate}
+\begin{prova}
+Aquest resultat va ser demostrat per primer cop a \cite{Billingsley1968}.
+Vegeu també \cite{Bardina2015}, pàg 31.
+\end{prova}
+\end{teo}
+
+\noindent D'una banda, observem que la condició
+\[
+\mathbb{E}[|X^{(n)}_t - X^{(n)}_s|^\gamma] \leq |F(t) - F(s)|^\alpha
+\]
+implica \eqref{eq:billingsley-condition} per la desigualtat de Txebixev.
+D'altra banda, en el nostre cas, $X^{(n)}_0 = 0$ per a tot $n \in \mathbb{N}$.
+Per tant, per a demostrar l'ajustament, és suficient
+provar que existeixen constants $\gamma \geq 0$ i $\alpha > 1$
+i una funció contínua $F \in \mathcal{C}$ no decreixent tal que
+\[
+\mathbb{E}[|X^{(n)}_t - X^{(n)}_s|^\gamma] \leq |F(t) - F(s)|^\alpha.
+\]
+Concretament, en el nostre cas on $\{X^{(n)}\}_n$ eren les trajectòries del passeig
+aleatori convenientment normalitzades, demostrarem que
+
+\begin{prop}
+Per a tot $s < t < \infty$,
+\[
+\mathbb{E}[(X^{(n)}_t - X^{(n)}_s)^4] \leq C(t - s)^2.
+\]
+\end{prop}

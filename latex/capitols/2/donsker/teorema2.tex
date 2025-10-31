@@ -5,7 +5,43 @@ tal que per a qualssevol $0 \leq t_1 \leq ... \leq t_d \leq \infty$,
 \left( X_{t_1}^{(n)},...,X_{t_d}^{(n)} \right) \xrightarrow{\mathcal{L}} \left(X_{t_1},...,X_{t_d} \right).
 \end{equation*}
 Aleshores, $\left\{X^{(n)}\right\}_n \xrightarrow{\mathcal{L}} X$.
-\begin{prova}
 \textcolor{blue}{\cite{KaratzasShreve1991}, teorema 4.15, pàg 65}
+\begin{prova}
+Volem veure que $\left\{X^{(n)}\right\}_n \xrightarrow{\mathcal{L}} X$.
+És a dir, que $\mathcal{L}(X^{(n)}) \xrightarrow{w} \mathcal{L}(X)$,
+entenent $\left\{X^{(n)}\right\}_n$ i $X$ com variables aleatòries amb valors a $(C, \mathcal{C})$.
+
+Per el teorema de Prohorov, com $\left\{ X^{(n)}\right\}_n$ és ajustada,
+aleshores és relativament compacta.
+Per tant, tota subsuccessió $\left\{X^{(n_k)}\right\}_k \subset \left\{X^{(n)}\right\}_n$
+té una subsuccessió $\left\{Y^{(n)}\right\}_n \subset \left\{X^{(n_k)}\right\}_k$
+tal que $\mathcal{L}(Y^{(n)}) \xrightarrow{w} \P$, per a alguna $\P \in \mathcal{P}(C)$.
+
+Suposem que una altra subsuccessió $\left\{Z^{(n)}\right\}_n$ indueix mesures
+a $(C, \mathcal{C})$ que convergeixen feblement a una mesura $\Q \in \mathcal{P}(C)$.
+Aleshores, $\P$ i $\Q$ han de tenir les mateixes distribucions a dimensió finita.
+És a dir,
+\begin{equation*}
+\P\left[ w \in \mathcal{C} : (w(t_1), \ldots, w(t_d)) \in A\right]
+=
+\Q\left[ w \in \mathcal{C} : (w(t_1), \ldots, w(t_d)) \in A\right]
+\end{equation*}
+per a tot $0 \leq t_1 < t_2 \ldots < t_d < \infty$, $A \in \mathcal{B}(\mathcal{R}^d)$, $d \geq 1$.
+Per tant, $\P = \Q$.
+
+Ara, suposem que la seqüència de mesures
+$\left\{\mathcal{L}(X^{(n)})\right\}_n$
+no convergeix feblement a $\mathcal{L}(X)$.
+Aleshores, existeix una funció $f: \mathcal{C} \rightarrow \mathbb{R}$
+contínua i acotada tal que el límit\\
+$\lim_{n \to \infty} \int f(w) \mathcal{L}(X_n)(dw)$
+no existeix, o bé és diferent de $\int f(w) \mathcal{L}(X)(dw)$.
+En qualsevol cas, pel teorema de Prohorov, podem escollir una subseqüència
+$\left\{\mathcal{L}(X^{(n_k)})\right\}_k$ tal que
+$\lim_{k \to \infty} \int f(w) \mathcal{L}(X_k)(dw)$
+existeix però és diferent de $\int f(w) \mathcal{L}(X)(dw)$.
+Aquesta subseqüència no conté cap subseqüència $\left\{\mathcal{L}(X^{({n_k}_l)})\right\}_l$
+tal que $\mathcal{L}(X^{({n_k}_l)}) \xrightarrow{w} \mathcal{L}(X)$,
+cosa que contradiu la conclusió del paràgraf anterior.
 \end{prova}
 \end{teo}
