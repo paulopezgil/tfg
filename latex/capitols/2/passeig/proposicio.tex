@@ -8,7 +8,8 @@ Per a tot $s < t < \infty$,
 \mathbb{E}[(X^{(n)}_t - X^{(n)}_s)^4] \leq C(t - s)^2.
 \]
 \begin{prova}
-Recordem que en el cas del passeig aleatori, $\mathbb{E}[\xi_k] = 0$ i $\operatorname{Var}(\xi_k) = 1$.
+Recordem que en el cas del passeig aleatori,
+$\mathbb{E}[\xi_k] = 0$ i $\operatorname{Var}(\xi_k) = 1$ per a tot $k \geq 1$.
 Observem que podem escriure els processos $X^{(n)}_t$ de la següent manera:
 \[
 X^{(n)}_t = \frac{1}{\sqrt{n}} \int_0^{nt} \theta(x)\,dx,
@@ -27,58 +28,72 @@ X^{(n)}_t
 \end{align*}
 
 Aleshores,
-\begin{equation} \label{eq:moment-quart}
+\begin{equation*}
 \begin{split}
 \mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr]
 &= \frac{1}{n^2} \mathbb{E}\left[\left(\int_{ns}^{nt} \theta(x)\,dx\right)^4\right] \\
-&= \frac{1}{n^2} \mathbb{E}\left[\int_{ns}^{nt} \cdots \int_{ns}^{nt} \theta(x_1) \theta(x_2) \theta(x_3) \theta(x_4)\,dx_1 \cdots dx_4\right] \\
-&= \frac{24}{n^2} \mathbb{E}\left[\int_{ns}^{nt} \cdots \int_{ns}^{nt} \theta(x_1) \theta(x_2) \theta(x_3) \theta(x_4)
+&= \frac{1}{n^2} \mathbb{E}\left[\int_{ns}^{nt} \cdots \int_{ns}^{nt} \theta(x_1) \cdots \theta(x_4)\,dx_1 \cdots dx_4\right].
+\end{split}
+\end{equation*}
+
+
+Com tenim $4! = 24$ possibles combinacions d'ordenar les variables $x_1, x_2, x_3, x_4$, aleshores
+\begin{equation} \label{eq:moment-quart}
+\begin{split}
+\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr]
+&= \frac{24}{n^2} \mathbb{E}\left[\int_{ns}^{nt} \cdots \int_{ns}^{nt} \theta(x_1) \cdots \theta(x_4)
 \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\,dx_1 \cdots dx_4\right] \\
 &= \frac{24}{n^2} \int_{ns}^{nt} \cdots \int_{ns}^{nt}
-\mathbb{E}\bigl[\theta(x_1) \theta(x_2) \theta(x_3) \theta(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\bigr]
+\mathbb{E}\bigl[\theta(x_1) \cdots \theta(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\bigr]
 \,dx_1 \cdots dx_4.
 \end{split}
 \end{equation}
 
+
+
 Observem que
-\begin{align*}
-&\mathbb{E}\bigl[\theta(x_1) \theta(x_2) \theta(x_3) \theta(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\bigr] \\
+\begin{align}
+&\mathbb{E}\bigl[\theta(x_1) \cdots \theta(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\bigr] \nonumber \\
 &\qquad = \mathbb{E}\left[\sum_{k_1,k_2,k_3,k_4=1}^\infty \xi_{k_1} \xi_{k_2} \xi_{k_3} \xi_{k_4}
-\mathbf{1}_{[k_1-1,k_1)}(x_1) \cdots \mathbf{1}_{[k_4-1,k_4)}(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\right] \\
+\mathbf{1}_{[k_1-1,k_1)}(x_1) \cdots \mathbf{1}_{[k_4-1,k_4)}(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\right] \nonumber \\
 &\qquad = \sum_{k_1,k_2,k_3,k_4=1}^\infty \mathbb{E}[\xi_{k_1} \xi_{k_2} \xi_{k_3} \xi_{k_4}]
-\mathbf{1}_{[k_1-1,k_1)}(x_1) \cdots \mathbf{1}_{[k_4-1,k_4)}(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}.
-\end{align*}
+\mathbf{1}_{[k_1-1,k_1)}(x_1) \cdots \mathbf{1}_{[k_4-1,k_4)}(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}. \label{eq:moment-quart-2}
+\end{align}
 
 D'altra banda, per la independència i $\mathbb{E}[\xi_k] = 0$ s'obté
 \[
 \mathbb{E}[\xi_{k_1} \xi_{k_2} \xi_{k_3} \xi_{k_4}] =
 \begin{cases}
 0, & \text{si existeix } j \text{ tal que } k_j \neq k_i\ \forall i \neq j, \\
-1, & \text{si } k_1 = k_2 \text{ i } k_3 = k_4 \text{ (i } k_1 \neq k_3\text{)}, \\
+1, & \text{si } k_1 = k_2 \neq k_3 = k_4 \\
 1, & \text{si } k_1 = \cdots = k_4.
 \end{cases}
 \]
-Observem que en el cas del passeig aleatori, $\xi_k^4 = 1$ sempre, ja que $\xi_k \in \{-1, 1\}$.
-Per tant només contribueixen els termes amb parelles iguals o tots iguals, i l'expressió anterior es redueix a
+
+Per tant, l'expressió \eqref{eq:moment-quart-2} és igual a
 \[
-\sum_{k,j=1}^\infty \mathbf{1}_{[k-1,k)}(x_1) \mathbf{1}_{[k-1,k)}(x_2)
-\mathbf{1}_{[j-1,j)}(x_3) \mathbf{1}_{[j-1,j)}(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}
-+ O(1).
+\sum_{k,j=1}^\infty \mathbf{1}_{[k-1,k)^2}(x_1, x_2)
+                    \mathbf{1}_{[j-1,j)^2}(x_3, x_4)
+                    \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}.
 \]
 
-Substituint a \eqref{eq:moment-quart} i descartant els termes d'ordre inferior, obtenim
+Substituint a \eqref{eq:moment-quart}, obtenim la següent expressió:
 \[
 \frac{24}{n^2} \int_{ns}^{nt} \cdots \int_{ns}^{nt} \sum_{k,j=1}^\infty
-\mathbf{1}_{[k-1,k)}(x_1) \mathbf{1}_{[k-1,k)}(x_2) \mathbf{1}_{[j-1,j)}(x_3) \mathbf{1}_{[j-1,j)}(x_4)
+\mathbf{1}_{[k-1,k)^2}(x_1, x2) \mathbf{1}_{[j-1,j)^2}(x_3, x_4)
 \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\,dx_1 \cdots dx_4.
 \]
 Utilitzant la desigualtat
 $\mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}} \leq \mathbf{1}_{\{x_1 \leq x_2\}} \mathbf{1}_{\{x_3 \leq x_4\}}$
-i separant les sumes i integrals, s'obté
-\[
-\frac{24}{n^2} \left( \sum_{k=1}^\infty \int_{ns}^{nt} \int_{ns}^{nt}
+, obtenim que
+\begin{align*}
+&\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr] \\
+&\quad = \frac{24}{n^2} \int_{ns}^{nt} \cdots \int_{ns}^{nt} \sum_{k,j=1}^\infty
+\mathbf{1}_{[k-1,k)^2}(x_1, x_2) \mathbf{1}_{[j-1,j)^2}(x_3, x_4)
+\mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\,dx_1 \cdots dx_4 \\
+&\quad \leq \frac{24}{n^2} \left( \sum_{k=1}^\infty \int_{ns}^{nt} \int_{ns}^{nt}
 \mathbf{1}_{[k-1,k)}(x_1) \mathbf{1}_{[k-1,k)}(x_2) \mathbf{1}_{\{x_1 \leq x_2\}}\,dx_1 dx_2 \right)^2.
-\]
+\end{align*}
 
 Ara fem el canvi de variables $y_1 = x_1/n$ i $y_2 = x_2/n$. Així la quantitat anterior esdevé
 \[
@@ -104,17 +119,7 @@ Calculant l'integral,
 = 24 (t - s)^2.
 \end{align*}
 Prenent $C = 24$, hem provat la desigualtat desitjada.
+
 \end{prova}
 \end{prop}
 
-\medskip
-
-Ja hem vist a la secció anterior (teorema \ref{teo-convergencia-interpolacio})
-que les distribucions finito-dimensionals del procés $\{X^{(n)}\}_n$
-convergeixen en llei cap a les del moviment brownià.
-Per completar la demostració de la convergència en llei del procés,
-només ens calia verificar la condició d’ajustament de la successió $\{X^{(n)}\}_n$.
-Mitjançant la proposició \ref{prop-ajustament-passeig} i el criteri de Billingsley,
-hem provat que aquesta condició es compleix en el cas del passeig aleatori.
-Per tant, pel teorema \ref{teo-convergencia-finita}, el passeig aleatori
-convergeix en llei cap al moviment brownià.
