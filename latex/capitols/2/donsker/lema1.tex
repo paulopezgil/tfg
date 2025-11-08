@@ -1,6 +1,6 @@
 \begin{lema} \label{lema-estabilitat-convergencia-en-llei}
 Siguin $\left\{ X^{(n)} \right\}_n$, $\left\{ Y^{(n)} \right\}_n$ i $X$
-variables aleatòries amb valors a $(S, \rho)$,
+elements aleatoris amb valors a $(S, \rho)$,
 tals que per a tot $n \geq 1$, $X^{(n)}$ i $Y^{(n)}$
 estan definides en el mateix espai de probabilitats.
 Suposem que $X^{n} \xrightarrow{\mathcal{L}} X$
@@ -12,11 +12,11 @@ Aleshores, $Y^{n} \xrightarrow{\mathcal{L}} X$.
 
 \begin{prova}
 Siguin ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$
-els espais de probabilitat on estan definides les variables aleatòries
+els espais de probabilitat on estan definits els elements aleatoris
 $X^{(n)}$ i $Y^{(n)}$.
 Sigui ${\left\{ (\Omega, \mathcal{F}, \P) \right\}}_n$
-un altre espai de probabilitat on està definida la variable aleatòria $X$.
-Sigui $f: \mathcal{S} \to \mathbb{R}$ una funció contínua i acotada.
+un altre espai de probabilitat on està definit l'element aleatori $X$.
+Sigui $f: S \to \mathbb{R}$ una funció contínua i acotada.
 Per la observació \ref{obs-convergencia-en-llei}, és suficient demostrar que
 \begin{equation*}
 \lim_{n \to \infty} \mathbb{E}_n[f(X^{(n)}) - f(Y^{(n)})] = 0.
@@ -24,13 +24,13 @@ Per la observació \ref{obs-convergencia-en-llei}, és suficient demostrar que
 
 
 
-Sigui $M = \sup_{s \in \mathcal{S}} |f(s)| < \infty$.
+Sigui $M = \sup_{s \in S} |f(s)| < \infty$.
 Per l'observació \ref{obs-relativament-compacte},
 com $X^{(n)} \xrightarrow{\mathcal{L}} X$,
 aleshores $\{X^{(n)}\}_n$ és relativament compacta.
 Pel teorema de Prohorov, aleshores $\{X^{(n)}\}_n$ és ajustada.
 Per tant, per a tot $\varepsilon > 0$, existeix un conjunt compacte
-$K_{\varepsilon} \subset \mathcal{S}$ tal que
+$K_{\varepsilon} \subset S$ tal que
 \begin{equation*}
 \P_n(X^{(n)} \in K_{\varepsilon}) \geq 1 - \frac{\varepsilon}{6M}, \quad \forall n \in \mathbb{N}.
 \end{equation*}

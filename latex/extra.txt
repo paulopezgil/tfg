@@ -1,0 +1,1 @@
+We've agreed with our teacher that instead of $C$ we will use $C[0,\infty]$ and instead of $\mathcal{C}$ we will use $\mathcal{B}(C[0,\infty])$ through the whole project, also $\mathcal{B}(S)$ instead of $\mathcal{S}$. Your task is to replace all accurences in all the tex files

@@ -9,22 +9,23 @@ Aleshores, $\left\{X^{(n)}\right\}_n \xrightarrow{\mathcal{L}} X$.
 \begin{prova}
 Volem veure que $\left\{X^{(n)}\right\}_n \xrightarrow{\mathcal{L}} X$.
 És a dir, que $\mathcal{L}(X^{(n)}) \xrightarrow{w} \mathcal{L}(X)$,
-entenent $\left\{X^{(n)}\right\}_n$ i $X$ com variables aleatòries amb valors a $(C, \mathcal{C})$.
+entenent $\left\{X^{(n)}\right\}_n$ i $X$ com funcions aleatòries
+amb valors a $(C[0,\infty], \mathcal{B}(C[0,\infty]))$.
 
 Per el teorema de Prohorov, com $\left\{ X^{(n)}\right\}_n$ és ajustada,
 aleshores és relativament compacta.
 Per tant, tota subsuccessió $\left\{X^{(n_k)}\right\}_k \subset \left\{X^{(n)}\right\}_n$
 té una subsuccessió $\left\{Y^{(n)}\right\}_n \subset \left\{X^{(n_k)}\right\}_k$
-tal que $\mathcal{L}(Y^{(n)}) \xrightarrow{w} \P$, per a alguna $\P \in \mathcal{P}(C)$.
+tal que $\mathcal{L}(Y^{(n)}) \xrightarrow{w} \P$, per a alguna $\P \in \mathcal{P}(C[0,\infty])$.
 
 Suposem que una altra subsuccessió $\left\{Z^{(n)}\right\}_n$ indueix mesures
-a $(C, \mathcal{C})$ que convergeixen feblement a una mesura $\Q \in \mathcal{P}(C)$.
+a $(C[0,\infty], \mathcal{B}(C[0,\infty]))$ que convergeixen feblement a una mesura $\Q \in \mathcal{P}(C[0,\infty])$.
 Aleshores, $\P$ i $\Q$ han de tenir les mateixes distribucions a dimensió finita.
 És a dir,
 \begin{equation*}
-\P\left[ w \in \mathcal{C} : (w(t_1), \ldots, w(t_d)) \in A\right]
+\P\left[ w \in C[0,\infty] : (w(t_1), \ldots, w(t_d)) \in A\right]
 =
-\Q\left[ w \in \mathcal{C} : (w(t_1), \ldots, w(t_d)) \in A\right]
+\Q\left[ w \in C[0,\infty] : (w(t_1), \ldots, w(t_d)) \in A\right]
 \end{equation*}
 per a tot $0 \leq t_1 < t_2 \ldots < t_d < \infty$, $A \in \mathcal{B}(\mathcal{R}^d)$, $d \geq 1$.
 Per tant, $\P = \Q$.
@@ -32,7 +33,7 @@ Per tant, $\P = \Q$.
 Ara, suposem que la seqüència de mesures
 $\left\{\mathcal{L}(X^{(n)})\right\}_n$
 no convergeix feblement a $\mathcal{L}(X)$.
-Aleshores, existeix una funció $f: \mathcal{C} \rightarrow \mathbb{R}$
+Aleshores, existeix una funció $f: C[0,\infty] \rightarrow \mathbb{R}$
 contínua i acotada tal que el límit\\
 $\lim_{n \to \infty} \int f(w) \mathcal{L}(X_n)(dw)$
 no existeix, o bé és diferent de $\int f(w) \mathcal{L}(X)(dw)$.
