@@ -9,7 +9,7 @@ Aleshores,
 \left( B_{t_1}, B_{t_2}, \ldots, B_{t_d} \right)
 \quad \text{quan } n \to \infty,
 \end{equation*}
-on $\left\{ B_t, \mathcal{F}_t^B; t \geq 0 \right\}$ és un moviment Brownià estàndard.
+on $\left\{ B_t : t \geq 0 \right\}$ és un moviment Brownià estàndard.
 \textcolor{blue}{\cite{KaratzasShreve1991}, teorema 4.15, pàg 67}
 
 
@@ -36,26 +36,15 @@ Ara, sigui $\varepsilon>0$. Aplicant la desigualtat de Txebixev,
 \le \frac{\sigma^2}{\varepsilon^2\,\sigma^2 n} = \frac{1}{\varepsilon^2 n} \xrightarrow{n\to\infty} 0.
 \]
 En particular, això val per $u=s$ i $u=t$, i per tant
-\[
-\left( \frac{1}{\sigma\sqrt{n}} S_{\lfloor ns\rfloor},\, \frac{1}{\sigma\sqrt{n}} S_{\lfloor nt\rfloor} \right)
-\xrightarrow{P}
-\big( X^{(n)}_s, X^{(n)}_t\big).
-\]
-Per el lema \ref{lema-estabilitat-convergencia-en-llei}, és suficient provar que
-\[
-\left( \frac{1}{\sigma\sqrt{n}} S_{\lfloor ns\rfloor},\, \frac{1}{\sigma\sqrt{n}} S_{\lfloor nt\rfloor} \right)
-\xrightarrow{\mathcal{L}} (B_s, B_t).
-\]
+\begin{equation} \label{condicio1}
+\left\| \big( X^{(n)}_s, X^{(n)}_t\big) - \frac{1}{\sigma\sqrt{n}} \left( S_{\lfloor ns\rfloor},\, S_{\lfloor nt\rfloor} \right) \right\|
+\xrightarrow{P} 0.
+\end{equation}
 
-Considerem l'aplicació contínua $\varphi(x,y)=(x, y-x)$.
-Per el lema \ref{lema-mapa-continua}, és equivalent demostrar que
-\[
-\left( \frac{1}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j,\, \frac{1}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right)
-\xrightarrow{\mathcal{L}} (B_s, B_t-B_s).
-\]
-Per construcció, les variables aleatòries $\{\xi_j\}_{j\ge1}$ són independents.
-Així doncs, les variables aleatòries dels dos sumatoris son diferents i, per tant, independents.
-Siguin $u,v\in\mathbb{R}$. Aleshores,
+
+
+Per altra banda, siguin $u,v\in\mathbb{R}$.
+Aleshores, com les variables aleatòries $\{\xi_n\}_n$ són independents per construcció,
 \begin{multline} \label{eq-func-caracteristica}
 \lim_{n \to \infty} \mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j + \frac{iv}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right\}\right]=\\
 =\mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \right\}\right]
@@ -100,7 +89,28 @@ De manera anàloga,
 Substituïnt aquestes expressions a \eqref{eq-func-caracteristica}, obtenim
 \[
 \lim_{n \to \infty} \mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j + \frac{iv}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right\}\right]
-= e^{-\frac{u^2 s}{2}}\, e^{-\frac{v^2 (t-s)}{2}},
+= e^{-\frac{u^2 s}{2}}\, e^{-\frac{v^2 (t-s)}{2}}.
 \]
+
+Per tant,
+\[
+\left( \frac{1}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j,\, \frac{1}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right)
+\xrightarrow{\mathcal{L}} (B_s, B_t-B_s).
+\]
+
+Considerem l'aplicació contínua $\varphi(x,y)=(x, x+y)$.
+Pel lema \ref{lema-mapa-continua},
+la condició anterior implica que
+\begin{equation} \label{condicio2}
+\left( \frac{1}{\sigma\sqrt{n}} S_{\lfloor ns\rfloor},\, \frac{1}{\sigma\sqrt{n}} S_{\lfloor nt\rfloor} \right)
+\xrightarrow{\mathcal{L}} (B_s, B_t).
+\end{equation}
+
+Per tant, per les condicions \eqref{condicio1} i \eqref{condicio2},
+i pel lema \ref{lema-estabilitat-convergencia-en-llei},
+tenim que
+\[\big(X^{(n)}_s, X^{(n)}_t\big) \xrightarrow{\mathcal{L}} \big(B_s, B_t\big),\]
+com volíem demostrar.
+
 \end{prova}
 \end{teo}

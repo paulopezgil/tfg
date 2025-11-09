@@ -14,10 +14,10 @@ Aleshores, $Y^{n} \xrightarrow{\mathcal{L}} X$.
 Siguin ${\left\{ (\Omega_n, \mathcal{F}_n, \P_n) \right\}}_n$
 els espais de probabilitat on estan definits els elements aleatoris
 $X^{(n)}$ i $Y^{(n)}$.
-Sigui ${\left\{ (\Omega, \mathcal{F}, \P) \right\}}_n$
+Sigui $(\Omega, \mathcal{F}, \P)$
 un altre espai de probabilitat on està definit l'element aleatori $X$.
 Sigui $f: S \to \mathbb{R}$ una funció contínua i acotada.
-Per la observació \ref{obs-convergencia-en-llei}, és suficient demostrar que
+Per l'observació \ref{obs-convergencia-en-llei}, és suficient demostrar que
 \begin{equation*}
 \lim_{n \to \infty} \mathbb{E}_n[f(X^{(n)}) - f(Y^{(n)})] = 0.
 \end{equation*}
@@ -42,7 +42,7 @@ per a qualssevol $x,y \in K_{\varepsilon}$ tals que $\rho(x,y) < \delta$.
 Per altra banda, per hipòtesi $\rho(X^{n}, Y^{n}) \xrightarrow{P} 0$.
 Per tant, existeix $n_0 \in \mathbb{N}$ tal que
 \begin{equation*}
-\P_n(\rho(X^{(n)}, Y^{(n)}) > \delta) < \frac{\varepsilon}{6M}, \quad \forall n \geq n_0.
+\P_n\left(\left|\rho(X^{(n)}, Y^{(n)}) - 0 \right| > \delta \right) < \frac{\varepsilon}{6M}, \quad \forall n \geq n_0.
 \end{equation*}
 
 

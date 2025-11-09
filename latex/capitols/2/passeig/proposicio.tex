@@ -1,15 +1,12 @@
 
-Concretament, en el nostre cas on $\{X^{(n)}\}_n$ eren les trajectòries del passeig
-aleatori convenientment normalitzades, demostrarem que
-
 \begin{prop} \label{prop-ajustament-passeig}
-Per a tot $s < t < \infty$,
+Siguin $\{X^{(n)}\}_n$ les trajectòries del passeig
+aleatori convenientment normalitzades com a \eqref{interpolacio-lineal}.
+Aleshores, per a tot $s < t < \infty$,
 \[
 \mathbb{E}[(X^{(n)}_t - X^{(n)}_s)^4] \leq C(t - s)^2.
 \]
 \begin{prova}
-Recordem que en el cas del passeig aleatori,
-$\mathbb{E}[\xi_k] = 0$ i $\operatorname{Var}(\xi_k) = 1$ per a tot $k \geq 1$.
 Observem que podem escriure els processos $X^{(n)}_t$ de la següent manera:
 \[
 X^{(n)}_t = \frac{1}{\sqrt{n}} \int_0^{nt} \theta(x)\,dx,
@@ -60,7 +57,9 @@ Observem que
 \mathbf{1}_{[k_1-1,k_1)}(x_1) \cdots \mathbf{1}_{[k_4-1,k_4)}(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}. \label{eq:moment-quart-2}
 \end{align}
 
-D'altra banda, per la independència i $\mathbb{E}[\xi_k] = 0$ s'obté
+Recordem que en el cas del passeig aleatori,
+$\mathbb{E}[\xi_k] = 0$ i $\operatorname{Var}(\xi_k) = 1$ per a tot $k \geq 1$.
+Per la hipòtesi independència, obtenim que
 \[
 \mathbb{E}[\xi_{k_1} \xi_{k_2} \xi_{k_3} \xi_{k_4}] =
 \begin{cases}
@@ -70,33 +69,34 @@ D'altra banda, per la independència i $\mathbb{E}[\xi_k] = 0$ s'obté
 \end{cases}
 \]
 
-Per tant, l'expressió \eqref{eq:moment-quart-2} és igual a
+Substituïnt a l'expressió \eqref{eq:moment-quart-2}, obtenim que
 \[
+\mathbb{E}\bigl[\theta(x_1) \cdots \theta(x_4) \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\bigr] =
 \sum_{k,j=1}^\infty \mathbf{1}_{[k-1,k)^2}(x_1, x_2)
                     \mathbf{1}_{[j-1,j)^2}(x_3, x_4)
                     \mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}.
 \]
 
-Substituint a \eqref{eq:moment-quart}, obtenim la següent expressió:
-\[
-\frac{24}{n^2} \int_{ns}^{nt} \cdots \int_{ns}^{nt} \sum_{k,j=1}^\infty
+Aplicant això a l'equació \eqref{eq:moment-quart}, obtenim la següent expressió:
+\begin{align*}
+&\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr] \nonumber \\
+&\quad = \frac{24}{n^2} \int_{ns}^{nt} \cdots \int_{ns}^{nt} \sum_{k,j=1}^\infty
 \mathbf{1}_{[k-1,k)^2}(x_1, x2) \mathbf{1}_{[j-1,j)^2}(x_3, x_4)
-\mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\,dx_1 \cdots dx_4.
-\]
+\mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\,dx_1 \cdots dx_4. \nonumber
+\end{align*}
+
 Utilitzant la desigualtat
 $\mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}} \leq \mathbf{1}_{\{x_1 \leq x_2\}} \mathbf{1}_{\{x_3 \leq x_4\}}$
 , obtenim que
-\begin{align*}
-&\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr] \\
-&\quad = \frac{24}{n^2} \int_{ns}^{nt} \cdots \int_{ns}^{nt} \sum_{k,j=1}^\infty
-\mathbf{1}_{[k-1,k)^2}(x_1, x_2) \mathbf{1}_{[j-1,j)^2}(x_3, x_4)
-\mathbf{1}_{\{x_1 \leq x_2 \leq x_3 \leq x_4\}}\,dx_1 \cdots dx_4 \\
-&\quad \leq \frac{24}{n^2} \left( \sum_{k=1}^\infty \int_{ns}^{nt} \int_{ns}^{nt}
-\mathbf{1}_{[k-1,k)}(x_1) \mathbf{1}_{[k-1,k)}(x_2) \mathbf{1}_{\{x_1 \leq x_2\}}\,dx_1 dx_2 \right)^2.
-\end{align*}
-
-Ara fem el canvi de variables $y_1 = x_1/n$ i $y_2 = x_2/n$. Així la quantitat anterior esdevé
 \[
+\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr]
+\leq \frac{24}{n^2} \left( \sum_{k=1}^\infty \int_{ns}^{nt} \int_{ns}^{nt}
+\mathbf{1}_{[k-1,k)}(x_1) \mathbf{1}_{[k-1,k)}(x_2) \mathbf{1}_{\{x_1 \leq x_2\}}\,dx_1 dx_2 \right)^2.
+\]
+
+Ara fem el canvi de variables $y_1 = x_1/n$ i $y_2 = x_2/n$:
+\[
+\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr] \leq
 \frac{24}{n^2} n^4 \left( \int_s^t \int_s^t \sum_{k=1}^\infty
 \mathbf{1}_{[\frac{k-1}{n},\frac{k}{n})}(y_1) \mathbf{1}_{[\frac{k-1}{n},\frac{k}{n})}(y_2)
 \mathbf{1}_{\{y_1 \leq y_2\}}\,dy_1 dy_2 \right)^2.
@@ -107,16 +107,18 @@ Observem que
 \mathbf{1}_{\{\frac{k-1}{n} \leq y_2 < \frac{k}{n}\}}
 \leq \mathbf{1}_{\{y_2 - y_1 \leq \frac{1}{n}\}}.
 \]
-Per tant la nostra expressió està acotada per
+Per tant,
 \[
+\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr] \leq
 24 n^2 \left( \int_s^t \int_s^t \mathbf{1}_{\{y_2 - y_1 \leq \frac{1}{n}\}} \mathbf{1}_{\{y_1 \leq y_2\}}\,dy_1 dy_2 \right)^2.
 \]
 Calculant l'integral,
 \begin{align*}
-24 n^2 \left( \int_s^t \int_{\max(y_2 - \frac{1}{n}, s)}^{y_2} dy_1\,dy_2 \right)^2
+\mathbb{E}\bigl[(X^{(n)}_t - X^{(n)}_s)^4\bigr] 
+&\leq 24 n^2 \left( \int_s^t \int_{\max(y_2 - \frac{1}{n}, s)}^{y_2} dy_1\,dy_2 \right)^2 \\
 &\leq 24 n^2 \left( \int_s^t \int_{y_2 - \frac{1}{n}}^{y_2} dy_1\,dy_2 \right)^2 \\
-&= 24 n^2 \left( \int_s^t \frac{1}{n}\,dy_2 \right)^2
-= 24 (t - s)^2.
+&= 24 n^2 \left( \int_s^t \frac{1}{n}\,dy_2 \right)^2 \\
+&= 24 (t - s)^2.
 \end{align*}
 Prenent $C = 24$, hem provat la desigualtat desitjada.
 
