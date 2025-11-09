@@ -1,7 +1,7 @@
 
 \begin{prop} \label{prop-ajustament-passeig}
 Siguin $\{X^{(n)}\}_n$ les trajectòries del passeig
-aleatori convenientment normalitzades com a \eqref{interpolacio-lineal}.
+aleatori convenientment normalitzades com a l'equació \eqref{interpolacio-lineal}.
 Aleshores, per a tot $s < t < \infty$,
 \[
 \mathbb{E}[(X^{(n)}_t - X^{(n)}_s)^4] \leq C(t - s)^2.
@@ -58,8 +58,10 @@ Observem que
 \end{align}
 
 Recordem que en el cas del passeig aleatori,
-$\mathbb{E}[\xi_k] = 0$ i $\operatorname{Var}(\xi_k) = 1$ per a tot $k \geq 1$.
-Per la hipòtesi independència, obtenim que
+$Im(\xi_k) = \{-1,1\}$, $\mathbb{E}[\xi_k] = 0$ i $\operatorname{Var}(\xi_k) = 1$ per a tot $k \geq 1$.
+Per la hipòtesi independència i tenint en compte que
+$\xi_1, \xi_2, \xi_3, \xi_4$ estan ordenades,
+obtenim que
 \[
 \mathbb{E}[\xi_{k_1} \xi_{k_2} \xi_{k_3} \xi_{k_4}] =
 \begin{cases}

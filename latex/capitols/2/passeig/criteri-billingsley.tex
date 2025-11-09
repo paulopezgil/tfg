@@ -16,14 +16,11 @@ Aquest resultat va ser demostrat per primer cop per P. Billingsley l'any 1968
 \end{teo}
 
 \noindent D'una banda, observem que la condició
-\[
+\begin{equation} \label{condicio-billingsley}
 \mathbb{E}[|X^{(n)}_t - X^{(n)}_s|^\gamma] \leq |F(t) - F(s)|^\alpha
-\]
+\end{equation}
 implica \eqref{eq:billingsley-condition} per la desigualtat de Txebixev.
 D'altra banda, en el nostre cas, $X^{(n)}_0 = 0$ per a tot $n \in \mathbb{N}$.
-Per tant, per a demostrar l'ajustament, és suficient
+Per tant, per a demostrar l'ajustament de la successió de processos $\{X^{(n)}\}_n$, és suficient
 provar que existeixen constants $\gamma \geq 0$ i $\alpha > 1$
-i una funció contínua $F \in C[0,\infty]$ no decreixent tal que
-\[
-\mathbb{E}[|X^{(n)}_t - X^{(n)}_s|^\gamma] \leq |F(t) - F(s)|^\alpha.
-\]
+i una funció contínua $F \in C[0,\infty]$ no decreixent tal que \eqref{condicio-billingsley} es compleixi.
