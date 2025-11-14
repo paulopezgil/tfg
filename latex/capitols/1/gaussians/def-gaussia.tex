@@ -1,0 +1,22 @@
+Amb l'objectiu de definir el moviment brownià, comencem recordant
+la definició de variable aleatòria gaussiana i de procés gaussià.
+
+\begin{defi}
+Una variable aleatòria $X$ s'anomena \emph{gaussiana}
+si existeixen $\mu \in \mathbb{R}$ i $\sigma^2 \geq 0$ tals que $X \sim N(\mu, \sigma^2)$.
+És a dir, tals que per a tot $B \in \mathcal{B}(\mathbb{R})$,
+\begin{equation*}
+\P(X \in B) = \frac{1}{\sqrt{2\pi \sigma^2}} \int_B \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx.
+\end{equation*}
+\end{defi}
+
+\begin{defi}
+Un vector aleatori $(X_1, X_2, \ldots, X_n)$ s'anomena \emph{gaussià}
+si per a qualssevol $a_1, a_2, \ldots, a_n \in \mathbb{R}$,
+la combinació lineal $\sum_{i=1}^n a_i X_i$ és una variable aleatòria gaussiana.
+\end{defi}
+
+\begin{defi}
+Un procés estocàstic $\{X_t : t \geq 0\}$ amb valors a $\mathbb{R}$ es diu que és \emph{gaussià}
+si per a tots $t_1, t_2, \cdots t_n \in \mathbb{R}$, el vector aleatori $(X_{t_1}, X_{t_2}, \ldots, X_{t_n})$ és gaussià.
+\end{defi}

@@ -21,6 +21,16 @@
 
 \vspace{1cm}
 
+% MSC footnote (unnumbered, does not advance counter)
+{\renewcommand\thefootnote{}% hide marker
+ \footnote{2020 Mathematics Subject Classification. 60J65, 60F17, 65C05, 60-04}%
+														   % 60J65 - Brownian motion
+														   % 60F17 - Functional limit theorems; invariance principles
+														   % 65C05 - Monte Carlo methods
+														   % 60-04 - Software, source code for probability theory
+ \addtocounter{footnote}{-1}% restore counter
+}
+
 
 \begin{flushright}
 	\textbf{\LARGE Autor: Pau L\'opez Gil-P\'erez}
