@@ -1,0 +1,37 @@
+Finalment, donem una proposició que ens serà útil més endavant
+quan estudiem la convergència cap al moviment brownià.
+Considerarem el cas $n = 2$.
+La demostració del cas general és anàlega però la notació és més pesada.
+
+\begin{prop} \label{prop:funcio-caracteristica-brownia}
+Sigui $\{B_t : t \geq 0\}$ un moviment brownià estàndard.
+Aleshores, per a qualssevol $0 \leq s < t < \infty$,
+la funció característica del vector $(B_s, B_t - B_s)$ és
+\begin{equation*}
+\varphi_{(B_s, B_t - B_s)}(u,v)
+= \exp\left( -\frac{1}{2} \left( u^2 s + v^2 (t-s) \right) \right).
+\end{equation*}
+\begin{prova}
+Per la propietat (2) del moviment brownià, sabem que $B_s$ i $B_t - B_s$ són independents.
+Per tant,
+\begin{equation*}
+\varphi_{(B_s, B_t - B_s)}(u,v)
+= \mathbb{E}\left[ e^{i(u B_s + v (B_t - B_s))} \right]
+= \mathbb{E}\left[ e^{i u B_s} \right] \mathbb{E}\left[ e^{i v (B_t - B_s)} \right]
+\end{equation*}
+Per la propietat (3) del moviment brownià,
+sabem que $B_s \sim \mathcal{N}(0,s)$. Per tant, per la proposició \ref{prop:caracteristica-normal},
+\begin{equation*}
+\mathbb{E}\left[ e^{i u B_s} \right] = \exp\left( -\frac{1}{2} u^2 s \right).
+\end{equation*}
+Anàlogament, com $B_t - B_s \sim \mathcal{N}(0,t-s)$, tenim que
+\begin{equation*}
+\mathbb{E}\left[ e^{i v (B_t - B_s)} \right] = \exp\left( -\frac{1}{2} v^2 (t-s) \right).
+\end{equation*}
+Per tant,
+\[
+\mathbb{E}\left[ e^{i(u B_s + v (B_t - B_s))} \right] = \exp\left( -\frac{1}{2} \left( u^2 s + v^2 (t-s) \right) \right),
+\]
+com volíem demostrar.
+\end{prova}
+\end{prop}

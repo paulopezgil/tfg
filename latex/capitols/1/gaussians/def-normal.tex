@@ -1,0 +1,14 @@
+A continuació, recordarem la definició de variable aleatòria gaussiana 
+i obtindrem la seva funció característica.
+També definirem la variable aleatòria gaussiana multidimensional
+mitjançant la seva funció característica.
+
+\begin{defi}
+Una variable aleatòria $X$ s'anomena \emph{gaussiana}
+si existeixen $\mu \in \mathbb{R}$ i $\sigma^2 \geq 0$ tals que
+\begin{equation*}
+\P(X \in B) = \frac{1}{\sqrt{2\pi \sigma^2}} \int_B \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx,
+\qquad \forall B \in \mathcal{B}(\mathbb{R}).
+\end{equation*}
+En aquest cas, escriurem $X \sim \mathcal{N}(\mu, \sigma^2)$.
+\end{defi}
