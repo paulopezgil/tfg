@@ -4,19 +4,22 @@
 \input{aux/macros.tex}
 
 % Primers components del document
+\begin{document}
 \frontmatter
 \input{capitols/titol.tex}
 \input{capitols/index.tex}
-\input{capitols/intro.tex}
 
 % Contingut principal del treball
 \mainmatter
+\addcontentsline{toc}{chapter}{Introducció}
+\input{capitols/intro.tex}
 \input{capitols/1.tex}
 \input{capitols/2.tex}
 
 % Bibliografia
 \backmatter
 \nocite{*}
+\addcontentsline{toc}{chapter}{Bibliografia}
 \printbibliography[title=Bibliografia]
 
 \end{document}

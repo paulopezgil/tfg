@@ -7,7 +7,28 @@ Això és, afegir la següent propietat a la definició \ref{def:brownia}:
 \end{enumerate}
 Si més no, a partir de la definició \ref{def:brownia} i utilitzant l'anomenat
 \emph{criteri de continuïtat de Kolmogorov}, es pot demostrar l'existència
-d'una versió del moviment brownià amb trajectòries contínues quasi segurament
+d'una versió del moviment Brownià amb trajectòries contínues quasi segurament
 \footnote{Vegeu \cite{Rovira2020}, pàg 41.}.
-Quan ens referim al \emph{moviment brownià estàndard},
-ens referirem a la versió amb trajectòries contínues quasi segurament.
+Quan ens referim al \emph{moviment Brownià estàndard},
+ens referirem a aquesta versió del procés en qüestió.
+
+També cal esmentar que l'existència del moviment Brownià estàndard
+és un resultat no trivial que es pot demostrar de vàries maneres.
+Per exemple:
+\begin{itemize}
+    \item A partir de la definició donada anteriorment, obtenint la densitat conjunta del vector $(B_{t_1}, \cdots, B_{t_n})$
+          i utilitzant el \emph{Teorema de Kolmogorov} per a l'existència de processos estocàstics.
+          Posteriorment, es pot utilitzar el \emph{criteri de continuïtat de Kolmogorov}
+          per a obtenir una versió amb trajectòries contínues quasi segurament, tal i com hem esmentat anteriorment.
+          \footnote{Vegeu \cite{Rovira2020}, pàg 40-41.}
+    \item Definint el moviment Brownià com un procés gaussià
+          (és a dir, tal que tots els seus vectors finits són gaussians multidimensionals)
+          amb mitjana zero i matriu de covariància donada per $\mathbb{E}(B_sB_t) = min(s,t)$,
+          per a posteriorment utilitzar el \emph{Teorema de consistència de Kolmogorov}
+          per a provar la seva existència.
+          \footnote{Vegeu \cite{Marquez2024}, pàg 105.}
+    \item Demostrant l'existència de la \emph{mesura de Wiener},
+          que és la llei del moviment Brownià estàndard,
+          entès com a funció aleatòria amb valors a $C[0,\infty)$.
+          \footnote{Vegeu \cite{Billingsley1999}, pàg. 87.}
+\end{itemize}
