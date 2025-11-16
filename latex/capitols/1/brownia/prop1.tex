@@ -1,0 +1,23 @@
+\begin{prop}
+Sigui $\{B_t : t \geq 0\}$ un moviment brownià.
+Aleshores, per a qualssevol $s,t \geq 0$,
+\[
+\mathbb{E}(B_sB_t) = min(s,t)
+\]
+\begin{prova}
+Suposem, sense pèrdua de generalitat, que $s \leq t$. Aleshores,
+\[
+\mathbb{E}(B_s B_t) = \mathbb{E}\left( B_s (B_t - B_s) \right) + \mathbb{E}\left( B_s^2 \right) \\
+\]
+Com per la propietat (2) del moviment brownià, $B_s$ i $B_t - B_s$ són independents,
+tenim que
+\[
+\mathbb{E}(B_s B_t) = \mathbb{E}(B_s) \mathbb{E}(B_t - B_s) + \mathbb{E}\left( B_s^2 \right)
+\]
+Finalment, com $\mathbb{E}(B_s) = 0$ i $\mathbb{E}(B_s^2) = s$, obtenim que
+\[
+\mathbb{E}(B_s B_t) = s = min(s,t),
+\]
+com volíem demostrar.
+\end{prova}
+\end{prop}
