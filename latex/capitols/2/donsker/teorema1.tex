@@ -57,20 +57,20 @@ Aleshores, com les variables aleatòries $\{\xi_n\}_n$ són independents per con
 
 
 
-Fixem-nos en el primer factor (l'altre és idèntic substituïnt $s$ per $t-s$). Com que
+Fixem-nos en el primer factor (l'altre és idèntic substituïnt $s$ per $t-s$). Per una banda,
 \[
 \left|
 \frac{1}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j
 -
 \frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j
 \right|
-\xrightarrow[n\to\infty]{P} 0,
+\xrightarrow[n\to\infty]{P} 0.
 \]
-i pel teorema central del límit
+Per altra banda, pel Teorema central del límit,
 \[
-\frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \xrightarrow{\mathcal{L}} \mathcal{N}(0,s),
+\frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \xrightarrow{\mathcal{L}} \mathcal{N}(0,s).
 \]
-aleshores obtenim que
+Per tant, utilitzant la funció característica de la llei $\mathcal{N}(0,s)$ (cf. proposició \ref{prop:caracteristica-normal}) i el Teorema de continuïtat de Paul Lévy,
 \[
 \lim_{n \to \infty}\mathbb{E}\left[\exp\!\left\{ \frac{iu}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \right\}\right]
 = e^{-\frac{u^2 s}{2}}.
