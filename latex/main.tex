@@ -3,7 +3,7 @@
 \input{aux/config.tex}
 \input{aux/macros.tex}
 
-% Primers components del document
+% Títol i index
 \begin{document}
 \frontmatter
 \input{capitols/titol.tex}
@@ -15,11 +15,21 @@
 \input{capitols/intro.tex}
 \input{capitols/1.tex}
 \input{capitols/2.tex}
+\input{capitols/3.tex}
+
+% Conclusions
+\addcontentsline{toc}{chapter}{Conclusions}
+\input{capitols/conclusions.tex}
+
+% Apèndix
+\backmatter
+\input{capitols/appendix.tex}
 
 % Bibliografia
-\backmatter
 \nocite{*}
 \addcontentsline{toc}{chapter}{Bibliografia}
 \printbibliography[title=Bibliografia]
+
+
 
 \end{document}
