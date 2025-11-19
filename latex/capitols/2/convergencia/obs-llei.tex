@@ -3,12 +3,12 @@ Aquesta condició és equivalent a demanar que per a tota funció $f: S \to \mat
 \begin{equation*}
 \lim_{n \to \infty} \mathbb{E}[f(X_n)] = \mathbb{E}[f(X)],
 \end{equation*}
-ja que mitjançant un canvi de variable i recordant que $\mathcal{L}(X_n) \defeq \P_n \circ X_n^{-1}$, tenim que
+ja que mitjançant un canvi de variable i recordant que $\llei{X_n} \defeq \P_n \circ X_n^{-1}$, tenim que
 \begin{equation*}
-\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega)) d\P_n(\omega) = \int_S f(s) d\mathcal{L}(X_n)(s),
+\mathbb{E}[f(X_n)] = \int_{\Omega_n} f(X_n(\omega)) d\P_n(\omega) = \int_S f(s) d\llei{X_n}(s),
 \end{equation*}
 i de manera anàloga,
 \begin{equation*}
-\mathbb{E}[f(X)] = \int_{\Omega} f(X(\omega)) d\P(\omega) = \int_S f(s) d\mathcal{L}(X)(s).
+\mathbb{E}[f(X)] = \int_{\Omega} f(X(\omega)) d\P(\omega) = \int_S f(s) d\llei{X}(s).
 \end{equation*}
 \end{obs}

@@ -4,11 +4,11 @@ La funció característica d'una mesura de probabilitat $\mu$
 \begin{equation*}
 \varphi_\mu(t)=\int_{\mathbb{R}}e^{itx}\,\mu(dx).
 \end{equation*}
-Si $X$ és una variable aleatòria amb llei $\mu$,
+Si $X$ és una variable aleatòria amb llei $\llei{X}$,
 la seva funció característica serà, per definició,
 la funció característica de la seva llei. És a dir,
 \[
-\varphi_X(t) = \int_{\mathbb{R}}e^{itx}\,\mathcal{L}(X)(dx) = \mathbb{E}[e^{itX}].
+\varphi_X(t) = \int_{\mathbb{R}}e^{itx}\,\llei{X}(dx) = \mathbb{E}[e^{itX}].
 \]
 
 
@@ -18,9 +18,9 @@ es defineix com
 \[
 \varphi_\mu(t)=\int_{\mathbb{R}^n}e^{i\langle t,x\rangle}\,\mu(dx),
 \]
-i la funció característica d’un vector aleatori
+i la funció característica d'un vector aleatori
 $X=(X_1,\dots,X_n)$ serà la funció característica de la seva llei, definida per
 \[
-\varphi_X(t) = \int_{\mathbb{R^n}}e^{i\langle t,x\rangle}\,\mathcal{L}(X)(dx) = \mathbb{E}[e^{i\langle t,X\rangle}].
+\varphi_X(t) = \int_{\mathbb{R}^n}e^{i\langle t,x\rangle}\,\llei{X}(dx) = \mathbb{E}[e^{i\langle t,X\rangle}].
 \]
 \end{defi}

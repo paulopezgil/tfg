@@ -5,7 +5,7 @@ Siguin $0 \leq t_1 < t_2 < \ldots < t_d < \infty$.
 Aleshores,
 \begin{equation*}
 \left( X_{t_1}^{(n)}, X_{t_2}^{(n)}, \ldots, X_{t_d}^{(n)} \right)
-\xrightarrow{\mathcal{L}}
+\xlongrightarrow[n\to\infty]{\mathcal{L}}
 \left( B_{t_1}, B_{t_2}, \ldots, B_{t_d} \right)
 \quad \text{quan } n \to \infty,
 \end{equation*}
@@ -20,7 +20,7 @@ on $\left\{ B_t : t \geq 0 \right\}$ és un moviment Brownià estàndard.
 Considerarem el cas $d=2$. El cas general és anàleg però la notació és més feixuga.
 Siguin $s=t_1$ i $t=t_2$. Volem veure que
 \[
-\big(X^{(n)}_s, X^{(n)}_t\big) \xrightarrow{\mathcal{L}} \big(B_s, B_t\big).
+\big(X^{(n)}_s, X^{(n)}_t\big) \xlongrightarrow[n\to\infty]{\mathcal{L}} \big(B_s, B_t\big).
 \]
 
 Per la definició d'interpolació lineal \eqref{interpolacio-lineal}, per a tot $u\ge 0$ tenim
@@ -32,12 +32,13 @@ Ara, sigui $\varepsilon>0$. Aplicant la desigualtat de Txebixev,
 \[
 \P\!\left( \left| X^{(n)}_u - \frac{1}{\sigma\sqrt{n}} S_{\lfloor nu\rfloor} \right| > \varepsilon \right)
 \le \P\!\left( \frac{1}{\sigma\sqrt{n}}\, \big|\xi_{\lfloor nu\rfloor+1}\big| > \varepsilon \right)
-\le \frac{\sigma^2}{\varepsilon^2\,\sigma^2 n} = \frac{1}{\varepsilon^2 n} \xrightarrow{n\to\infty} 0.
+\le \frac{\sigma^2}{\varepsilon^2\,\sigma^2 n}
+= \frac{1}{\varepsilon^2 n} \xlongrightarrow{n\to\infty} 0.
 \]
 En particular, això val per $u=s$ i $u=t$, i per tant
 \begin{equation} \label{condicio1}
 \left\| \big( X^{(n)}_s, X^{(n)}_t\big) - \frac{1}{\sigma\sqrt{n}} \left( S_{\lfloor ns\rfloor},\, S_{\lfloor nt\rfloor} \right) \right\|
-\xrightarrow{P} 0.
+\xlongrightarrow[n\to\infty]{P} 0.
 \end{equation}
 
 
@@ -64,11 +65,11 @@ Fixem-nos en el primer factor (l'altre és idèntic substituïnt $s$ per $t-s$).
 -
 \frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j
 \right|
-\xrightarrow[n\to\infty]{P} 0.
+\xlongrightarrow[n\to\infty]{P} 0.
 \]
 Per altra banda, pel Teorema central del límit,
 \[
-\frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \xrightarrow{\mathcal{L}} \mathcal{N}(0,s).
+\frac{\sqrt{s}}{\sigma\sqrt{\lfloor ns\rfloor}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j \xlongrightarrow[n\to\infty]{\mathcal{L}} \mathcal{N}(0,s).
 \]
 Per tant, utilitzant la funció característica de la llei $\mathcal{N}(0,s)$ (cf. proposició \ref{prop:caracteristica-normal}) i el Teorema de continuïtat de Paul Lévy,
 \[
@@ -97,7 +98,7 @@ aquesta és la funció característica del vector aleatori $(B_s, B_t-B_s)$.
 Per tant, pel Teorema de continuïtat de Paul Lévy, tenim que
 \[
 \left( \frac{1}{\sigma\sqrt{n}} \sum_{j=1}^{\lfloor ns\rfloor} \xi_j,\, \frac{1}{\sigma\sqrt{n}} \sum_{j=\lfloor ns\rfloor+1}^{\lfloor nt\rfloor} \xi_j \right)
-\xrightarrow{\mathcal{L}} (B_s, B_t-B_s).
+\xlongrightarrow[n\to\infty]{\mathcal{L}} (B_s, B_t-B_s).
 \]
 
 Considerem l'aplicació contínua $\varphi(x,y)=(x, x+y)$.
@@ -105,13 +106,13 @@ Pel lema \ref{lema-mapa-continua},
 la condició anterior implica que
 \begin{equation} \label{condicio2}
 \left( \frac{1}{\sigma\sqrt{n}} S_{\lfloor ns\rfloor},\, \frac{1}{\sigma\sqrt{n}} S_{\lfloor nt\rfloor} \right)
-\xrightarrow{\mathcal{L}} (B_s, B_t).
+\xlongrightarrow[n\to\infty]{\mathcal{L}} (B_s, B_t).
 \end{equation}
 
 Per tant, per les condicions \eqref{condicio1} i \eqref{condicio2},
 i pel lema \ref{lema-estabilitat-convergencia-en-llei},
 tenim que
-\[\big(X^{(n)}_s, X^{(n)}_t\big) \xrightarrow{\mathcal{L}} \big(B_s, B_t\big),\]
+\[\big(X^{(n)}_s, X^{(n)}_t\big) \xlongrightarrow[n\to\infty]{\mathcal{L}} \big(B_s, B_t\big),\]
 com volíem demostrar.
 
 \end{prova}
