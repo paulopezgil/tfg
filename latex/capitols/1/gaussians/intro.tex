@@ -1,0 +1,14 @@
+En aquesta secció, reintroduïm les variables aleatòries Gaussianes
+i les seves propietats bàsiques, així com els conceptes derivats
+de vector aleatori Gaussià i de procés Gaussià.
+Recordem que una variable aleatòria $X$ s'anomena Gaussiana,
+i escrivim $X \sim \mathcal{N}(\mu, \sigma^2)$,
+si existeixen $\mu \in \mathbb{R}$ i $\sigma^2 \geq 0$ tals que
+\begin{equation*}
+\P(X \in B) = \frac{1}{\sqrt{2\pi \sigma^2}} \int_B \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx,
+\qquad \forall B \in \mathcal{B}(\mathbb{R}).
+\end{equation*}
+Procedim a calcular la funció característica 
+d'una variable aleatòria Gaussiana estàndard,
+és a dir, d'una variable aleatòria $X \sim \mathcal{N}(0,1)$.
+Per fer-ho, necessitarem el següent lema.

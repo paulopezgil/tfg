@@ -1,0 +1,22 @@
+\begin{lema}
+Sigui $f(t,x) : \mathbb{R}^2 \rightarrow \mathbb{R}$ una funció contínua amb derivada parcial contínua $\frac{\partial f}{\partial t}$. Suposem que 
+$$|f(t,x)| + \Big|\frac{\partial f}{\partial t}(t,x)\Big| \leq g(x),$$ 
+on $g$ és una funció integrable respecte una probabilitat $\mu$ en $\mathbb{R}$. Aleshores, la funció 
+$$F(t) = \int_{\mathbb{R}} f(t,x)\,\mu(dx)$$ 
+és derivable i
+$$F'(t) = \int_{\mathbb{R}} \frac{\partial f}{\partial t}(t,x)\,\mu(dx).$$
+\end{lema}
+
+\begin{prova}
+Fixem $t \in \mathbb{R}$, $h \neq 0$ i calculem
+$$\frac{1}{h}\big[F(t+h) - F(t)\big] = \frac{1}{h}\int_{\mathbb{R}} \big[f(t+h,x) - f(t,x)\big]\,\mu(dx).$$
+
+Si prenem una successió $\{h_n\}_n$ que convergeix cap a zero, per a cada $x$ tindrem
+$$\lim_{n}\frac{1}{h_n}\big[f(t+h_n,x) - f(t,x)\big] = \frac{\partial f}{\partial t}(t,x).$$
+
+Pel teorema de convergència dominada podem commutar aquest límit puntual amb la integral respecte $\mu$. En efecte, pel teorema del valor mig
+$$\Big|\frac{1}{h_n}\big[f(t+h_n, x)-f(t, x)\big]\Big| = \Big|\frac{\partial f}{\partial t}(t', x)\Big| \leq g(x).$$
+
+Per tant,
+$$\lim_{n}\frac{1}{h_n}\big[F(t+h_n)-F(t)\big] = \int_{\mathbb{R}} \frac{\partial f}{\partial t}(t,x)\,\mu(dx).$$
+\end{prova}

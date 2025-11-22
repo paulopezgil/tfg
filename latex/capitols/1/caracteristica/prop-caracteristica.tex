@@ -1,0 +1,41 @@
+\begin{prop}
+Sigui $\mu$ una mesura de probabilitat. Aleshores, la seva funció característica cumpleix les següents propietats:
+\begin{enumerate}
+    \item $\varphi_\mu(0) = 1$.
+    \item $|\varphi_\mu(t)| \leq 1$, per a tot $t \in \mathbb{R}^n$.
+    \item $\varphi_\mu(-t) = \varphi_\mu(t)$.
+    \item $\varphi_\mu$ és una funció uniformement contínua.    
+    \item Sigui $X$ un vector aleatori $n$-dimensional, $A$ una matriu $m \times n$ i $b \in \mathbb{R}^m$. Aleshores, per a tot $t \in \mathbb{R}^m$:
+    $$\varphi_{AX+b}(t) = e^{i\langle t,b\rangle}\,\varphi_X(A^*t).$$
+    \item Si $X_1,\dots,X_n$ són variables aleatòries independents, aleshores
+    \begin{equation}
+    \varphi_{X_1+\dots+X_n}(t) = \varphi_{X_1}(t)\cdots\varphi_{X_n}(t).
+    \end{equation}
+\end{enumerate}
+
+\begin{prova}
+(1) Per definició de funció característica:
+$$\varphi_\mu(0) = \int_{\mathbb{R}^n} e^{i\langle 0,x\rangle}\,\mu(dx) = \int_{\mathbb{R}^n} 1\,\mu(dx) = 1.$$
+
+(2) Com que $|e^{i\langle t,x\rangle}| = 1$, tenim:
+$$|\varphi_\mu(t)| = \Big|\int_{\mathbb{R}^n} e^{i\langle t,x\rangle}\,\mu(dx)\Big| \leq \int_{\mathbb{R}^n} |e^{i\langle t,x\rangle}|\,\mu(dx) = 1.$$
+
+(3) Per simetria:
+$$\varphi_\mu(-t) = \int_{\mathbb{R}^n} e^{-i\langle t,x\rangle}\,\mu(dx) = \int_{\mathbb{R}^n} e^{\overline{i\langle t,x\rangle}}\,\mu(dx) = \overline{\int_{\mathbb{R}^n} e^{i\langle t,x\rangle}\,\mu(dx)} = \overline{\varphi_\mu(t)}.$$
+
+(4) Sigui $s,t \in \mathbb{R}^n$. Tenim:
+$$|\varphi_\mu(t) - \varphi_\mu(s)| = \Big|\int_{\mathbb{R}^n} (e^{i\langle t,x\rangle} - e^{i\langle s,x\rangle})\,\mu(dx)\Big| \leq \int_{\mathbb{R}^n} |e^{i\langle t-s,x\rangle} - 1|\,\mu(dx).$$
+L'últim integrand està acotat per $2$ i tendeix a $0$ quan $|t-s| \to 0$. Pel Teorema de la convergència dominada, $\varphi_\mu$ és uniformement contínua.
+
+(5) Per a $X$, $A$, $b$:
+$$\varphi_{AX+b}(t) = \mathbb{E}(e^{i\langle t,AX+b\rangle}) = e^{i\langle t,b\rangle}\,\mathbb{E}(e^{i\langle A^Tt,X\rangle}) = e^{i\langle t,b\rangle}\,\varphi_X(A^Tt).$$
+
+(6) Per la propietat d'independència:
+\begin{align*}
+\varphi_{X_1+\dots+X_n}(t) &= \mathbb{E}(e^{it(X_1+\dots+X_n)}) \\
+                           &= \mathbb{E}(e^{itX_1} \cdots e^{itX_n}) \\
+                           &= \mathbb{E}(e^{itX_1}) \cdots \mathbb{E}(e^{itX_n}) \\
+                           &= \varphi_{X_1}(t) \cdots \varphi_{X_n}(t).
+\end{align*}
+\end{prova}
+\end{prop}

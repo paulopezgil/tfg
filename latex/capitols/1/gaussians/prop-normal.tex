@@ -1,0 +1,20 @@
+\begin{prop} \label{prop:caracteristica-normal}
+Si $X \sim \mathcal{N}(0,1)$, la seva funció característica és
+\begin{equation*}
+\varphi_X(u) = e^{-\frac{u^2}{2}},
+\end{equation*}
+\begin{prova}
+Per definició, tenim que
+\begin{equation*}
+    \varphi_X(t)
+    = \mathbb{E}[e^{itX}] 
+    = \frac{1}{\sqrt{2\pi}}\left( \int_{\mathbb{R}}e^{-x^2/2}cos(tx)\,dx + i\int_{\mathbb{R}}e^{-x^2/2}sin(tx)\,dx \right).
+\end{equation*}
+Completant el quadrat en l'exponent, obtenim
+\begin{equation*}
+    \varphi_X(u)
+    = \frac{e^{-u^2/2}}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-\frac{(x - i u)^2}{2t}} \, dx
+    = e^{-\frac{u^2}{2}}.
+\end{equation*}
+\end{prova}
+\end{prop}
